@@ -1,0 +1,76 @@
+export const footerSocials = [
+	{
+	name: 'Instagram',
+	url: 'https://www.instagram.com/aacaactionnow/n',
+	icon: "mdi:instagram",
+	},
+	{
+	name: 'Youtube',
+	url: 'https://youtube.com/@aac773?si=uD0oG-QBl7YKmKfq',
+	icon: "mdi:youtube",
+	},
+	{
+	name: 'Facebook',
+	url: 'https://www.facebook.com/aacaactionnow/',
+	icon: "mdi:facebook",
+	},
+	{
+	name: 'Pinterest',
+	url: 'https://www.pinterest.com/aacaactionnow/',
+	icon: "mdi:pinterest",
+	},
+]
+
+export const footerLists = [
+	{
+		title: 'Landing Pages',
+		items: [
+			{
+				title: '什麼是AAC？',
+				slug: '/landing-pages/landing-1',
+			},
+			{
+				title: 'Landing Page 2',
+				slug: '/landing-pages/landing-2',
+			},
+      // {
+			// 	title: 'Landing Page 3',
+			// 	slug: '/landing-pages/landing-3',
+			// },
+		],
+	},
+	{
+		title: 'Company',
+		items: [
+			{
+				title: 'About',
+				slug: '/company/about',
+			},
+			{
+				title: 'Blog',
+				slug: '/blog',
+			},
+			{
+				title: 'Contact',
+				slug: '/company/contact',
+			},
+		],
+	},
+	{
+		title: '資源',
+		items: [
+			{
+				title: 'Project Core',
+				slug: 'https://project-core.com/',
+			},
+			{
+				title: 'Talking with Tech Podcast',
+				slug: 'https://www.talkingwithtech.org/',
+			},
+			{
+				title: '語言摯聊室 Podcast',
+				slug: 'https://open.spotify.com/show/6BzuKxzKWhiR0w0635KTEF',
+			}
+		],
+	},
+];

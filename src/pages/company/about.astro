@@ -1,0 +1,50 @@
+---
+import { TextSection } from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import HeroSection from '../../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: '關於我 | AAC Action Now',
+	description: '熱愛AAC的語言治療師，分享AAC知識、評估、治療與資源。',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>熱愛AAC的語言治療師</h1>
+      <p>在這個部落格裡，我會分享：</p>
+        <ul>
+          <li>AAC 知識</li>
+          <li>AAC 評估與治療</li>
+          <li>AAC 活動設計</li>
+          <li>AAC 教學與應用資源</li>
+        </ul>
+      <p>歡迎大家與我交流、給我建議或提問！</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/cover.png"
+        alt="AAC Language Therapist"
+        id="home-hero-image"
+      />
+    </picture>
+	</HeroSection>
+
+  <TextSection narrow>
+    <p>
+      筱庭擁有台灣語言治療師證照，目前於美國北卡羅來納大學教堂山分校
+      攻讀語言治療博士，研究方向為溝通障礙者的溝通與讀寫教學。
+      筱庭為有特殊需求的兒童與成人提供語言、構音、吞嚥及輔助溝通系統（AAC）
+      的評估與介入。服務對象涵蓋語言障礙、腦性麻痺、自閉症、智能障礙等不同診斷族群。
+      她曾於台灣的醫院與相關機構，以及美國的學校診所、特殊學校與一般小學服務，
+      並參與匹茲堡 AAC 夏令營與密西根讀寫與 AAC 夏令營，協助孩子建立溝通與語言能力。
+    </p>
+
+    <p>
+      在美國，筱庭看到許多重症、多重障礙與低口語使用者都能透過 AAC
+      擁有有效的溝通工具。她希望分享自己在這裡看到與學到的經驗，
+      讓更多人認識 AAC，並在台灣持續推廣輔助溝通的理念與實踐。
+    </p>
+  </TextSection>
+</Layout>

@@ -1,0 +1,89 @@
+html,
+body {
+	height: 100%;
+}
+
+body {
+	max-width: 1920px;
+	margin: 0 auto;
+	background-color: var(--theme-bg);
+	position: relative;
+}
+
+pre {
+  padding: 1em;
+  border-radius: 0.5em;
+  overflow: auto;
+}
+
+pre .language-id {
+  display: none;
+}
+
+
+
+/* Optional: auto figure numbering */
+figure {
+  counter-increment: fig;
+  margin: 2.5rem auto;
+  text-align: center;
+}
+figcaption::before {
+  content: "Figure " counter(fig) ". ";
+  font-weight: 600;
+}
+
+.fig-32 .row {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Top row: 3 across */
+.fig-32 .row-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Optional: 4 across */
+.fig-32 .row-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Bottom row: 2 across, centered with same total width feel */
+.fig-32 .row-2 {
+  grid-template-columns: repeat(2, 1fr);
+  width: calc((100% - 2 * 0.75rem) * 2 / 3 + 0.75rem); /* ~2/3 width of row-3 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fig-32 .subfig {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fig-32 img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.fig-32 .subcap {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #555);
+}
+
+/* Mobile fallback */
+@media (max-width: 768px) {
+  .fig-32 .row-3,
+  .fig-32 .row-4 { grid-template-columns: repeat(2, 1fr); }
+  .fig-32 .row-2 { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .fig-32 .row-3,
+  .fig-32 .row-2,
+  .fig-32 .row-4 { grid-template-columns: 1fr; }
+}
