@@ -13,6 +13,9 @@ const {post} = Astro.props;
 
 <style>
 .blog-post__preview img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
   margin-bottom: 1rem;
   border-radius: calc(var(--theme-shape-radius) /2);
   transition: border-radius var(--theme-transition);

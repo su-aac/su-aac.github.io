@@ -12,7 +12,7 @@ export const nav = [
 		slug: '/company/about',
 	},
 	{
-		title: 'Contact',
+		title: 'CV',
 		slug: '/company/contact',
 	},
 ];

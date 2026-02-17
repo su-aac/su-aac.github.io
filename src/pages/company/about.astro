@@ -1,5 +1,9 @@
 ---
-import { TextSection } from '@components/odyssey-theme';
+import { TextSection,
+         TextCardSection,
+         Container,
+         ContactForm
+} from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
 import HeroSection from '../../components/sections/heros/HeroSection.astro';
 
@@ -47,4 +51,24 @@ const seo = {
       讓更多人認識 AAC，並在台灣持續推廣輔助溝通的理念與實踐。
     </p>
   </TextSection>
+
+	<Container>
+  <TextCardSection>
+  <h1>聯絡資訊</h1>
+    <p>
+      This is a contact form using Odyssey's form components to create a
+      contact form component. The contact form is setup to use Netlify's
+      form detection; however, it can easily be translated to other popular
+      form services such as Formspree, Getform, Formspark, etc.
+    </p>
+    <div>
+      <p>
+        <em><a href="tel:8008675309">(800) 867-5309</a></em> • <em
+          ><a href="mailto:hello@odysseytheme.com">hello@ourcompany.com</a
+          ></em
+        >
+      </p>
+  </TextCardSection>
+  </Container>
+
 </Layout>
