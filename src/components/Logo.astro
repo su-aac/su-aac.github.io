@@ -1,7 +1,8 @@
 ---
+const isEnglish = Astro.url.pathname.startsWith('/en');
 ---
 
-<p class="odyssey-logo">AAC今天就開始</p>
+<p class="odyssey-logo">{isEnglish ? 'AAC Action Now' : 'AAC今天就開始'}</p>
 
 <style>
 	.odyssey-logo {

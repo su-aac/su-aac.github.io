@@ -14,6 +14,14 @@ export interface Props {
 import { nav } from '../config/nav.js';
 
 const { seo } = Astro.props as Props;
+
+// Language switcher logic
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+const switchUrl = isEnglish
+  ? currentPath.replace('/en', '') || '/'
+  : `/en${currentPath}`;
+const switchLabel = isEnglish ? '中文' : 'English';
 ---
 
 <Layout seo={seo}>
@@ -21,7 +29,7 @@ const { seo } = Astro.props as Props;
 		<span slot="logo">
 			<Logo />
 		</span>
-		<Button slot="action-item" href="/theme/get-started">Get Started</Button>
+		<Button slot="action-item" href={switchUrl}>{switchLabel}</Button>
 	</Header>
 	<div id="page">
 		<slot />

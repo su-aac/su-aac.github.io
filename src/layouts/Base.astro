@@ -1,5 +1,6 @@
 ---
 import { SkipLink } from '@components/odyssey-theme';
+import { ViewTransitions } from 'astro:transitions';
 import BaseHead from '../components/head/BaseHead.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 
@@ -8,11 +9,13 @@ export interface Props {
 }
 
 const { seo } = Astro.props;
+const isEnglish = Astro.url.pathname.startsWith('/en');
 ---
 
-<html lang="en">
+<html lang={isEnglish ? 'en' : 'zh-TW'}>
 	<head>
 		<BaseHead {...seo} />
+		<ViewTransitions />
 	</head>
 	<body>
 		<SkipLink />

@@ -3,24 +3,31 @@ import { Icon } from 'astro-icon/components';
 import { Container, Button } from '@components/odyssey-theme';
 import settings from '../../../config/settings.js';
 import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
+
+// Language detection
+const isEnglish = Astro.url.pathname.startsWith('/en');
+const blogHref = isEnglish ? '/en/blog' : '/blog';
+const aboutHref = isEnglish ? '/en/company/about' : '/company/about';
 ---
 
 <Container>
 	<section class="hero-section__section">
 		<div class="hero-section__text">
-				<h1>Hi, I am Hsiao-Ting Su</h1>
+				<h1>{isEnglish ? 'Hi, I am Hsiao-Ting Su' : '嗨，我是蘇筱庭'}</h1>
 				<p>
-					I am an English-Mandarin Bilingual SLP from Taiwan.
+					{isEnglish
+						? 'I am an English-Mandarin Bilingual SLP from Taiwan.'
+						: '我是一位來自台灣的雙語語言治療師。'}
 				</p>
 				<div class="hero-btns__container">
-					<Button href="/blog" customIcon
-						>中文部落格
+					<Button href={blogHref} customIcon
+						>{isEnglish ? 'Blog' : '部落格'}
             <Fragment slot="icon">
               <Icon name="ic:baseline-chevron-right"/>
             </Fragment>
             </Button
 					>
-					<Button href="/company/about" unelevated>About Me</Button>
+					<Button href={aboutHref} unelevated>{isEnglish ? 'About Me' : '關於我'}</Button>
 				</div>
         {settings.enableThemeSwitcher && <ThemeSwitcher client:only/>}
 		</div>

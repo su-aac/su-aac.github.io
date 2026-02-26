@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+
+const seo = {
+	title: '履歷 | 蘇筱庭',
+	description: '履歷表',
+};
+---
+
+<Layout seo={seo}>
+	<Container>
+		<section class="cv-section">
+			<h1>履歷</h1>
+			<div class="cv-container">
+				<iframe
+					src="/assets/cv.pdf"
+					title="履歷"
+				></iframe>
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.cv-section {
+		margin: var(--section-margin) auto;
+		min-height: calc(90vh - var(--navbar-height));
+	}
+	.cv-section h1 {
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+	.cv-container {
+		width: 100%;
+		height: 80vh;
+		border-radius: var(--theme-shape-radius);
+		overflow: hidden;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+	.cv-container iframe {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+</style>
