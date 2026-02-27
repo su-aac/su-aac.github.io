@@ -1,0 +1,226 @@
+---
+import Layout from '../../../layouts/Page.astro';
+
+const allPosts = await Astro.glob('../posts/*.mdx');
+
+// Collect all categories with post counts
+const categoryCounts = new Map<string, number>();
+
+allPosts.forEach(post => {
+  const category = post.frontmatter.category;
+  if (category) {
+    categoryCounts.set(category, (categoryCounts.get(category) || 0) + 1);
+  }
+});
+
+const allCategoriesData = Array.from(categoryCounts.entries())
+  .map(([name, count]) => ({
+    name,
+    slug: name.toLowerCase().replace(/\s+/g, '-'),
+    count,
+  }))
+  .sort((a, b) => b.count - a.count);
+
+const seo = {
+  title: 'All Categories | Blog',
+  description: 'Browse all categories',
+};
+---
+
+<Layout seo={seo}>
+  <div class="categories-container">
+    <header class="categories-header">
+      <h1 class="categories-title">All Categories</h1>
+      <p class="categories-subtitle">Explore articles organized by categories</p>
+
+      <!-- Navigation -->
+      <nav class="categories-nav">
+        <a href="/blog/categories" class="categories-nav__link categories-nav__link--active">Categories</a>
+        <a href="/blog/tags" class="categories-nav__link">Tags</a>
+        <a href="/blog/authors" class="categories-nav__link">Authors</a>
+      </nav>
+    </header>
+
+    <hr class="categories-separator" />
+
+    <section class="categories-grid">
+      {allCategoriesData.map((category) => (
+        <a href={`/blog/categories/${category.slug}`} class="category-card">
+          <span class="category-card__name">{category.name}</span>
+          <span class="category-card__count">{category.count} {category.count === 1 ? 'post' : 'posts'}</span>
+        </a>
+      ))}
+    </section>
+
+    {allCategoriesData.length === 0 && (
+      <p class="categories-empty">No categories found.</p>
+    )}
+
+    <div class="categories-back">
+      <a href="/blog" class="categories-back__link">← Back to Blog</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .categories-container {
+    max-width: var(--container-max-width-narrow, 960px);
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    min-height: 60vh;
+  }
+
+  .categories-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .categories-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--theme-on-bg);
+    margin-bottom: 0.5rem;
+  }
+
+  .categories-subtitle {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Navigation */
+  .categories-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .categories-nav__link {
+    display: inline-block;
+    color: var(--theme-on-bg);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--theme-button-border-radius, 0.5rem);
+    transition: all var(--theme-transition);
+  }
+
+  .categories-nav__link:hover {
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+  }
+
+  .categories-nav__link--active {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .categories-nav__link--active:hover {
+    background-color: var(--theme-primary-hover);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .categories-separator {
+    border: none;
+    border-top: 1px solid var(--theme-surface-1);
+    margin: 2rem 0;
+  }
+
+  .categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--theme-surface-1);
+    border: 1px solid var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 1.25rem 1.5rem;
+    text-decoration: none;
+    transition: all var(--theme-transition);
+    min-width: 140px;
+  }
+
+  .category-card:hover {
+    background-color: var(--theme-primary);
+    border-color: var(--theme-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .category-card__name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--theme-on-surface-1);
+    margin-bottom: 0.25rem;
+    transition: color var(--theme-transition);
+  }
+
+  .category-card:hover .category-card__name {
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .category-card__count {
+    font-size: 0.8125rem;
+    color: var(--theme-on-surface-1);
+    opacity: 0.7;
+    transition: color var(--theme-transition), opacity var(--theme-transition);
+  }
+
+  .category-card:hover .category-card__count {
+    color: var(--theme-on-primary, #ffffff);
+    opacity: 0.9;
+  }
+
+  .categories-empty {
+    text-align: center;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+
+  .categories-back {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .categories-back__link {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .categories-back__link:hover {
+    color: var(--theme-primary);
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .categories-container {
+      padding: 1rem 1rem 3rem;
+    }
+
+    .category-card {
+      min-width: 120px;
+      padding: 1rem 1.25rem;
+    }
+
+    .categories-nav {
+      gap: 0.75rem;
+    }
+
+    .categories-nav__link {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="zh-TW"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg" href="/favicon.svg"><!-- Google Fonts - Chinese --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet"><!-- Primary Meta Tags --><title>Customizing Odyssey Theme</title><meta name="title" content="Customizing Odyssey Theme"><meta name="description" content="Learn how to customize Odyssey Theme's theme styles."><link rel="canonical" href="https://su-aac.github.io/theme/customizing-odyssey/"><!-- Generator --><meta name="generator" content="Astro v4.15.9"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://su-aac.github.io/theme/customizing-odyssey/"><meta property="og:title" content="Customizing Odyssey Theme"><meta property="og:description" content="Learn how to customize Odyssey Theme's theme styles."><meta property="og:image" content="https://su-aac.github.io/assets/images/home/cover.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://su-aac.github.io/theme/customizing-odyssey/"><meta property="twitter:title" content="Customizing Odyssey Theme"><meta property="twitter:description" content="Learn how to customize Odyssey Theme's theme styles."><meta property="twitter:image" content="https://su-aac.github.io/assets/images/home/cover.jpg"><!-- For Demonstration of the themes --><!-- Google Analytics --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><style>#article[data-astro-cid-gvpn4u4b]{padding-bottom:3rem}.post-header__container[data-astro-cid-gvpn4u4b]{max-width:var(--theme-blog-post-header-width);margin:1rem auto;padding:var(--container-padding)}.post-tags__list[data-astro-cid-gvpn4u4b]{margin:1rem auto;padding:0;list-style:none}.post-tags__tag[data-astro-cid-gvpn4u4b]{text-transform:uppercase}.post-tags__tag[data-astro-cid-gvpn4u4b] a[data-astro-cid-gvpn4u4b]{font-size:var(--font-size-sm);text-decoration:none}.post-layout__img[data-astro-cid-gvpn4u4b]{margin:0 auto 1rem;border-radius:var(--theme-shape-radius)}.post-layout__date[data-astro-cid-gvpn4u4b]{margin-bottom:1rem;opacity:.84}
+</style>
+<link rel="stylesheet" href="/_astro/customizing-odyssey.BuiSbn0g.css">
+<link rel="stylesheet" href="/_astro/about.Byswx2BQ.css"><script type="module" src="/_astro/hoisted.BB6uRyKX.js"></script>
+<script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
+/** Bundled JS generated from "@astrojs/lit/client-shim.js" */
+var N = Object.defineProperty;
+var i = (t, n) => () => (t && (n = t((t = 0))), n);
+var b = (t, n) => {
+	for (var a in n) N(t, a, { get: n[a], enumerable: !0 });
+};
+function s() {
+	if (d === void 0) {
+		let t = document.createElement('div');
+		(t.innerHTML = '<div><template shadowroot="open" shadowrootmode="open"></template></div>'),
+			(d = !!t.firstElementChild.shadowRoot);
+	}
+	return d;
+}
+var d,
+	m = i(() => {});
+var p,
+	c,
+	f,
+	u = i(() => {
+		(p = (t) => t.parentElement === null),
+			(c = (t) => t.tagName === 'TEMPLATE'),
+			(f = (t) => t.nodeType === Node.ELEMENT_NODE);
+	});
+var h,
+	E = i(() => {
+		m();
+		u();
+		h = (t) => {
+			var n;
+			if (s()) return;
+			let a = [],
+				e = t.firstElementChild;
+			for (; e !== t && e !== null; )
+				if (c(e)) a.push(e), (e = e.content);
+				else if (e.firstElementChild !== null) e = e.firstElementChild;
+				else if (f(e) && e.nextElementSibling !== null) e = e.nextElementSibling;
+				else {
+					let o;
+					for (; e !== t && e !== null; )
+						if (p(e)) {
+							o = a.pop();
+							let r = o.parentElement,
+								l = o.getAttribute('shadowroot');
+							if (((e = o), l === 'open' || l === 'closed')) {
+								let y = o.hasAttribute('shadowrootdelegatesfocus');
+								try {
+									r.attachShadow({ mode: l, delegatesFocus: y }).append(o.content);
+								} catch {}
+							} else o = void 0;
+						} else {
+							let r = e.nextElementSibling;
+							if (r != null) {
+								(e = r), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							let l =
+								(n = e.parentElement) === null || n === void 0 ? void 0 : n.nextElementSibling;
+							if (l != null) {
+								(e = l), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							(e = e.parentElement), o !== void 0 && (o.parentElement.removeChild(o), (o = void 0));
+						}
+				}
+		};
+	});
+var w = i(() => {
+	E();
+});
+var v = {};
+b(v, { hasNativeDeclarativeShadowRoots: () => s, hydrateShadowRoots: () => h });
+var S = i(() => {
+	m();
+	w();
+});
+async function g() {
+	let { hydrateShadowRoots: t } = await Promise.resolve().then(() => (S(), v));
+	window.addEventListener('DOMContentLoaded', () => t(document.body), { once: true });
+}
+var x = new DOMParser()
+	.parseFromString(
+		'<p><template shadowroot="open" shadowrootmode="open"></template></p>',
+		'text/html',
+		{
+			includeShadowRoots: !0,
+		}
+	)
+	.querySelector('p');
+(!x || !x.shadowRoot) && g();
+</script></head> <body> <a href="#content" data-astro-cid-c7ibh6fj>Skip to main content</a>   <script type="module">
+  const bodyElement = document.querySelector('body');
+  const menuButton = document.querySelector('#menuButton')
+  const navHeader = document.querySelector('#odysseyNavHeader');
+  const menuButtonIconHam = document.querySelector('#menuButtonIconHam');
+  const menuButtonIconClose = document.querySelector('#menuButtonIconClose');
+  let scrollPosition = 0;
+
+  menuButton.addEventListener('click', toggleMenu)
+
+  function toggleMenu() {
+    menuButtonIconHam.toggleAttribute('hidden');
+    menuButtonIconClose.toggleAttribute('hidden');
+    
+    if (navHeader.hasAttribute('mobile-menu-open', true)) {
+      menuButton.title = "Open Main Menu"
+      // unlock scroll position
+      bodyElement.style.removeProperty('overflow');
+      bodyElement.style.removeProperty('position');
+      bodyElement.style.removeProperty('top');
+      bodyElement.style.removeProperty('width');
+      window.scrollTo(0, scrollPosition);
+    } else {
+      menuButton.title = "Close Main Menu"
+      // lock scroll position
+      scrollPosition = window.pageYOffset;
+      bodyElement.style.overflow = 'hidden';
+      bodyElement.style.position = 'fixed';
+      bodyElement.style.top = `-${scrollPosition}px`;
+      bodyElement.style.width = '100%';
+    }
+    
+    navHeader.toggleAttribute('mobile-menu-open');
+  }
+</script> <header id="odysseyNavHeader" class="header--right" data-astro-cid-3hxe222u> <div class="header-logo-menu__container" data-astro-cid-3hxe222u> <button id="menuButton" title="Open Main Menu" data-astro-cid-3hxe222u> <span id="menuButtonIconHam" data-astro-cid-3hxe222u> <svg width="24px" height="24px" viewBox="0 0 24 24" data-astro-cid-3hxe222u data-icon="ic:baseline-menu">  <symbol id="ai:ic:baseline-menu"><path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"/></symbol><use xlink:href="#ai:ic:baseline-menu"></use>  </svg> </span> <span id="menuButtonIconClose" hidden data-astro-cid-3hxe222u> <svg width="24px" height="24px" viewBox="0 0 24 24" data-astro-cid-3hxe222u data-icon="ic:baseline-close">  <symbol id="ai:ic:baseline-close"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"/></symbol><use xlink:href="#ai:ic:baseline-close"></use>  </svg> </span> </button> <a class="header-logo__link" href="/" data-astro-cid-3hxe222u> <span> <p class="odyssey-logo" data-astro-cid-tvrurpns>AAC今天就開始</p>  </span> </a> </div> <div class="header-nav__container" data-astro-cid-3hxe222u>  <nav data-astro-cid-3hxe222u> <ul data-astro-cid-3hxe222u> <li data-astro-cid-3hxe222u><a href="/" data-astro-cid-3hxe222u>Home</a></li><li data-astro-cid-3hxe222u><a href="/blog" data-astro-cid-3hxe222u>Blog</a></li><li data-astro-cid-3hxe222u><a href="/about" data-astro-cid-3hxe222u>About</a></li><li data-astro-cid-3hxe222u><a href="/cv" data-astro-cid-3hxe222u>CV</a></li> </ul> </nav>  </div> <div class="header-action-item__container" data-astro-cid-3hxe222u> <a class="btn undefined undefined undefined" href="/en/theme/customizing-odyssey/" target="" rel="" data-astro-cid-5sjhwv6c> English </a>  </div> </header>  <main id="content">   <div id="page">  <div class="post-header__container" data-astro-cid-gvpn4u4b> <ul class="post-tags__list" data-astro-cid-gvpn4u4b>  </ul> <h1 data-astro-cid-gvpn4u4b>Customizing Odyssey Theme</h1> <p class="post-layout__date" data-astro-cid-gvpn4u4b> <time data-astro-cid-gvpn4u4b><em data-astro-cid-gvpn4u4b></em></time> </p>  </div> <div class="content__container content__container--narrow" data-astro-cid-swtg25lo>  <article id="article" data-astro-cid-gvpn4u4b> <p>This is one of the core features of Odyssey Theme and we’ve made it super easy to make the overall look and feel of the site your own with just a few top-level CSS custom properties. These custom properties and demo themes will be found in the <code>theme.css</code> file under <code>src/styles/</code>.</p>
+<p>First, If you are not planning on using the theme switcher found on the demo’s home page we would recommend you go to the <code>settings.js</code> file under <code>src/config/</code> and set <code>enableThemeSwitcher</code> to false. This will remove the theme switcher components and javascript from your website.</p>
+<p>It should look something like this.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  title: </span><span style="color:#9ECBFF">`Odyssey Astro Theme | A Marketing Website Theme for Startups and Businesses`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  description: </span><span style="color:#9ECBFF">`A simple, clean, and modern theme a startup or businesses&#39; marketing website.`</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">  enableThemeSwitcher: </span><span style="color:#79B8FF">false</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p>Second, if you are only going to have one theme on your site (most common) then you can delete all of the <code>[data-theme]</code> rules from the file and only keep the <code>:root</code> theme that looks something like this.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#B392F0">:root</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">	/* Theme Colors */</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">hsl</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-primary-hover</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">hsl</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">0</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">20</span><span style="color:#F97583">%</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-on-primary</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">	--theme-bg</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#fff</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-on-bg</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">	--theme-surface-1</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#f2f2f2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-on-surface-1</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">	--theme-surface-2</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#cce6d0</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-on-surface-2</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">#000</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">	/* Theme Shapes */</span></span>
+<span class="line"><span style="color:#6A737D">	/* Set this to 0 if you want all of the rounded cards, images, etc to be straight edges */</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-shape-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">clamp</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">);</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-button-border-radius</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">	/* Theme Transition */</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-transition</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.2</span><span style="color:#F97583">s</span><span style="color:#79B8FF"> ease-in-out</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">	/* Theme Layout */</span></span>
+<span class="line"><span style="color:#FFAB70">	--section-margin</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-grid-gap</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--container-max-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1440</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--container-max-width-narrow</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">960</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--container-padding</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0</span><span style="color:#79B8FF"> 1</span><span style="color:#F97583">rem</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#FFAB70">	--theme-blog-post-header-width</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1200</span><span style="color:#F97583">px</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">	/* Theme Fonts */</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-font-family-serif</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&#39;Roboto Serif&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">Georgia</span><span style="color:#E1E4E8">, Cambria, </span><span style="color:#9ECBFF">&#39;Times New Roman&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">		Times</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#FFAB70">	--theme-font-family-sans</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&#39;Lato&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">-apple-system</span><span style="color:#E1E4E8">, BlinkMacSystemFont,</span></span>
+<span class="line"><span style="color:#79B8FF">		sans-serif</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Look below for a breakdown of each property.</p>
+<h2 id="colors">Colors</h2>
+<p>Here is a quick breakdown of the color properties:</p>
+<ul>
+<li><code>--theme-primary</code> - The primary color of the theme. This would be the color used for the button backgrounds.</li>
+<li><code>--theme-primary-hover</code> - The color you would like the primary color to change to when hovered over.</li>
+<li><code>--theme-on-primary</code> - The color of text layered on top of the primary color.</li>
+<li><code>--theme-bg</code> - The background color of the site</li>
+<li><code>--theme-on-bg</code> - Default body text color</li>
+<li><code>--theme-surface-1</code> - The color used for cards layered on top of the background. Think of it like a global accent color or a secondary background color.</li>
+<li><code>--theme-on-surface-1</code> - The color used for text on top of the surface-1 color</li>
+<li><code>--theme-surface-2</code> - Similar to the surface-1 color but used less often. Feel free to be more creative with this surface to make it pop on the page.</li>
+<li><code>--theme-on-surface-2</code> - The color used for text on top of the surface-2 color</li>
+</ul>
+<h2 id="shapes">Shapes</h2>
+<p>You’ll notice a lot of rounded corners on the Odyssey Theme but if you look closely when the “Dark” theme is enabled the corners are all hard edges. This is because of the global <code>--theme-shape-radius</code> property. It will determine the shape of things like cards and images.</p>
+<h2 id="transition">Transition</h2>
+<p>Sometimes you want the animations to be consistent, especially on hover effects. This is where you would use the <code>--theme-transition</code> property.</p>
+<h2 id="layouts">Layouts</h2>
+<ul>
+<li><code>--section-margin</code> - The default top and bottom margin between sections</li>
+<li><code>--theme-grid-gap</code> - The default gap between items in a grid of cards, images, etc.</li>
+<li><code>--container-max-width</code> - The default container max width for content</li>
+<li><code>--container-max-width-narrow</code> - The narrow container max width for content</li>
+<li><code>--container-padding</code> - The default gutter padding on the container</li>
+</ul>
+<h2 id="custom-fonts">Custom Font(s)</h2>
+<ol>
+<li>
+<p>Add our own fonts to the <code>/public/assets/fonts</code> directory</p>
+</li>
+<li>
+<p>Update the <code>@font-face</code> rules in the <code>src/styles/typography.css</code> file</p>
+</li>
+<li>
+<p>Update your font stack with the <code>--theme-font-family-serif</code> and <code>--theme-font-family-sans</code> custom properties.</p>
+</li>
+</ol> </article>  </div>   </div>   </main> <footer style="--footer-bg:var(--theme-surface-1); --footer-color:var(--theme-on-surface-1)" data-astro-cid-ofitbb36> <div class="content__container " data-astro-cid-swtg25lo>  <div class="footer-grid__container" data-astro-cid-ofitbb36> <div class="footer-brand__container" data-astro-cid-ofitbb36> <div data-astro-cid-ofitbb36> <a href="/" data-astro-cid-ofitbb36> <p class="odyssey-logo" data-astro-cid-tvrurpns>AAC今天就開始</p>  </a> </div> <ul class="footer-socials__list" data-astro-cid-ofitbb36> <li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.instagram.com/aacaactionnow/n" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Instagram profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:instagram">  <symbol id="ai:mdi:instagram"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></symbol><use xlink:href="#ai:mdi:instagram"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://youtube.com/@aac773?si=uD0oG-QBl7YKmKfq" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Youtube profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:youtube">  <symbol id="ai:mdi:youtube"><path fill="currentColor" d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73"/></symbol><use xlink:href="#ai:mdi:youtube"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.facebook.com/aacaactionnow/" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Facebook profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:facebook">  <symbol id="ai:mdi:facebook"><path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"/></symbol><use xlink:href="#ai:mdi:facebook"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.pinterest.com/aacaactionnow/" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Pinterest profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:pinterest">  <symbol id="ai:mdi:pinterest"><path fill="currentColor" d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2A10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34c-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41c.86 0 1.26.63 1.26 1.44c0 .86-.57 2.09-.86 3.27c-.17.98.52 1.84 1.52 1.84c1.78 0 3.16-1.9 3.16-4.58c0-2.4-1.72-4.04-4.19-4.04c-2.82 0-4.48 2.1-4.48 4.31c0 .86.28 1.73.74 2.3c.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11c-1.28-.56-2.02-2.38-2.02-3.85c0-3.16 2.24-6.03 6.56-6.03c3.44 0 6.12 2.47 6.12 5.75c0 3.44-2.13 6.2-5.18 6.2c-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7z"/></symbol><use xlink:href="#ai:mdi:pinterest"></use>  </svg> </a> </li> </ul> </div> <div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>Landing Pages</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="/landing-pages/landing-1" data-astro-cid-ofitbb36>什麼是AAC？</a> </li><li data-astro-cid-ofitbb36> <a href="research-recruitment" data-astro-cid-ofitbb36>研究招募</a> </li> </ul> </div><div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>關於我</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="/about" data-astro-cid-ofitbb36>About</a> </li><li data-astro-cid-ofitbb36> <a href="/blog" data-astro-cid-ofitbb36>Blog</a> </li><li data-astro-cid-ofitbb36> <a href="/cv" data-astro-cid-ofitbb36>CV</a> </li> </ul> </div><div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>相關連結</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="https://www.facebook.com/groups/291665680045560/" data-astro-cid-ofitbb36>中文AAC FB社團</a> </li><li data-astro-cid-ofitbb36> <a href="https://open.spotify.com/show/6BzuKxzKWhiR0w0635KTEF" data-astro-cid-ofitbb36>語言摯聊室 Podcast</a> </li> </ul> </div> </div> <div class="footer-copyright__container" data-astro-cid-ofitbb36>  <p data-astro-cid-ofitbb36>Copyright &copy; 2026 AAC Action Now</p> </div>  </div>  </footer>  </body></html> 

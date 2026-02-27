@@ -40,7 +40,7 @@ export const footerLists = [
 		items: [
 			{
 				title: 'About',
-				slug: '/company/about',
+				slug: '/about',
 			},
 			{
 				title: 'Blog',

@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="zh-TW"> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg" href="/favicon.svg"><!-- Google Fonts - Chinese --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet"><!-- Primary Meta Tags --><title>AAC溝通輔具申請</title><meta name="title" content="AAC溝通輔具申請"><meta name="description" content="This is a blog post about high tech AAC App in Mandarin."><link rel="canonical" href="https://su-aac.github.io/blog/posts/aac-apply/"><!-- Generator --><meta name="generator" content="Astro v4.15.9"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://su-aac.github.io/blog/posts/aac-apply/"><meta property="og:title" content="AAC溝通輔具申請"><meta property="og:description" content="This is a blog post about high tech AAC App in Mandarin."><meta property="og:image" content="https://su-aac.github.io/assets/images/aac-apply/1.avif"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://su-aac.github.io/blog/posts/aac-apply/"><meta property="twitter:title" content="AAC溝通輔具申請"><meta property="twitter:description" content="This is a blog post about high tech AAC App in Mandarin."><meta property="twitter:image" content="https://su-aac.github.io/assets/images/aac-apply/1.avif"><!-- For Demonstration of the themes --><!-- Google Analytics --><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="stylesheet" href="/_astro/Mandarin-AAC-Handouts.ClXt82J9.css">
+<link rel="stylesheet" href="/_astro/customizing-odyssey.BuiSbn0g.css">
+<link rel="stylesheet" href="/_astro/about.Byswx2BQ.css"><script type="module" src="/_astro/hoisted.BB6uRyKX.js"></script>
+<script>/** @license Copyright 2020 Google LLC (BSD-3-Clause) */
+/** Bundled JS generated from "@astrojs/lit/client-shim.js" */
+var N = Object.defineProperty;
+var i = (t, n) => () => (t && (n = t((t = 0))), n);
+var b = (t, n) => {
+	for (var a in n) N(t, a, { get: n[a], enumerable: !0 });
+};
+function s() {
+	if (d === void 0) {
+		let t = document.createElement('div');
+		(t.innerHTML = '<div><template shadowroot="open" shadowrootmode="open"></template></div>'),
+			(d = !!t.firstElementChild.shadowRoot);
+	}
+	return d;
+}
+var d,
+	m = i(() => {});
+var p,
+	c,
+	f,
+	u = i(() => {
+		(p = (t) => t.parentElement === null),
+			(c = (t) => t.tagName === 'TEMPLATE'),
+			(f = (t) => t.nodeType === Node.ELEMENT_NODE);
+	});
+var h,
+	E = i(() => {
+		m();
+		u();
+		h = (t) => {
+			var n;
+			if (s()) return;
+			let a = [],
+				e = t.firstElementChild;
+			for (; e !== t && e !== null; )
+				if (c(e)) a.push(e), (e = e.content);
+				else if (e.firstElementChild !== null) e = e.firstElementChild;
+				else if (f(e) && e.nextElementSibling !== null) e = e.nextElementSibling;
+				else {
+					let o;
+					for (; e !== t && e !== null; )
+						if (p(e)) {
+							o = a.pop();
+							let r = o.parentElement,
+								l = o.getAttribute('shadowroot');
+							if (((e = o), l === 'open' || l === 'closed')) {
+								let y = o.hasAttribute('shadowrootdelegatesfocus');
+								try {
+									r.attachShadow({ mode: l, delegatesFocus: y }).append(o.content);
+								} catch {}
+							} else o = void 0;
+						} else {
+							let r = e.nextElementSibling;
+							if (r != null) {
+								(e = r), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							let l =
+								(n = e.parentElement) === null || n === void 0 ? void 0 : n.nextElementSibling;
+							if (l != null) {
+								(e = l), o !== void 0 && o.parentElement.removeChild(o);
+								break;
+							}
+							(e = e.parentElement), o !== void 0 && (o.parentElement.removeChild(o), (o = void 0));
+						}
+				}
+		};
+	});
+var w = i(() => {
+	E();
+});
+var v = {};
+b(v, { hasNativeDeclarativeShadowRoots: () => s, hydrateShadowRoots: () => h });
+var S = i(() => {
+	m();
+	w();
+});
+async function g() {
+	let { hydrateShadowRoots: t } = await Promise.resolve().then(() => (S(), v));
+	window.addEventListener('DOMContentLoaded', () => t(document.body), { once: true });
+}
+var x = new DOMParser()
+	.parseFromString(
+		'<p><template shadowroot="open" shadowrootmode="open"></template></p>',
+		'text/html',
+		{
+			includeShadowRoots: !0,
+		}
+	)
+	.querySelector('p');
+(!x || !x.shadowRoot) && g();
+</script></head> <body> <a href="#content" data-astro-cid-c7ibh6fj>Skip to main content</a>   <script type="module">
+  const bodyElement = document.querySelector('body');
+  const menuButton = document.querySelector('#menuButton')
+  const navHeader = document.querySelector('#odysseyNavHeader');
+  const menuButtonIconHam = document.querySelector('#menuButtonIconHam');
+  const menuButtonIconClose = document.querySelector('#menuButtonIconClose');
+  let scrollPosition = 0;
+
+  menuButton.addEventListener('click', toggleMenu)
+
+  function toggleMenu() {
+    menuButtonIconHam.toggleAttribute('hidden');
+    menuButtonIconClose.toggleAttribute('hidden');
+    
+    if (navHeader.hasAttribute('mobile-menu-open', true)) {
+      menuButton.title = "Open Main Menu"
+      // unlock scroll position
+      bodyElement.style.removeProperty('overflow');
+      bodyElement.style.removeProperty('position');
+      bodyElement.style.removeProperty('top');
+      bodyElement.style.removeProperty('width');
+      window.scrollTo(0, scrollPosition);
+    } else {
+      menuButton.title = "Close Main Menu"
+      // lock scroll position
+      scrollPosition = window.pageYOffset;
+      bodyElement.style.overflow = 'hidden';
+      bodyElement.style.position = 'fixed';
+      bodyElement.style.top = `-${scrollPosition}px`;
+      bodyElement.style.width = '100%';
+    }
+    
+    navHeader.toggleAttribute('mobile-menu-open');
+  }
+</script> <header id="odysseyNavHeader" class="header--right" data-astro-cid-3hxe222u> <div class="header-logo-menu__container" data-astro-cid-3hxe222u> <button id="menuButton" title="Open Main Menu" data-astro-cid-3hxe222u> <span id="menuButtonIconHam" data-astro-cid-3hxe222u> <svg width="24px" height="24px" viewBox="0 0 24 24" data-astro-cid-3hxe222u data-icon="ic:baseline-menu">  <symbol id="ai:ic:baseline-menu"><path fill="currentColor" d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"/></symbol><use xlink:href="#ai:ic:baseline-menu"></use>  </svg> </span> <span id="menuButtonIconClose" hidden data-astro-cid-3hxe222u> <svg width="24px" height="24px" viewBox="0 0 24 24" data-astro-cid-3hxe222u data-icon="ic:baseline-close">  <symbol id="ai:ic:baseline-close"><path fill="currentColor" d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"/></symbol><use xlink:href="#ai:ic:baseline-close"></use>  </svg> </span> </button> <a class="header-logo__link" href="/" data-astro-cid-3hxe222u> <span> <p class="odyssey-logo" data-astro-cid-tvrurpns>AAC今天就開始</p>  </span> </a> </div> <div class="header-nav__container" data-astro-cid-3hxe222u>  <nav data-astro-cid-3hxe222u> <ul data-astro-cid-3hxe222u> <li data-astro-cid-3hxe222u><a href="/" data-astro-cid-3hxe222u>Home</a></li><li data-astro-cid-3hxe222u><a href="/blog" data-astro-cid-3hxe222u>Blog</a></li><li data-astro-cid-3hxe222u><a href="/about" data-astro-cid-3hxe222u>About</a></li><li data-astro-cid-3hxe222u><a href="/cv" data-astro-cid-3hxe222u>CV</a></li> </ul> </nav>  </div> <div class="header-action-item__container" data-astro-cid-3hxe222u> <a class="btn undefined undefined undefined" href="/en/blog/posts/aac-apply/" target="" rel="" data-astro-cid-5sjhwv6c> English </a>  </div> </header>  <main id="content">   <div id="page">  <div class="post2-container" data-astro-cid-lld2kwgh> <!-- Horizontal separator --> <hr class="post2-separator" data-astro-cid-lld2kwgh> <!-- Blog Post Header --> <header class="post2-header" data-astro-cid-lld2kwgh> <h1 class="post2-title" data-astro-cid-lld2kwgh>AAC溝通輔具申請</h1> <div class="post2-meta" data-astro-cid-lld2kwgh> <span data-astro-cid-lld2kwgh>By <a href="/blog/authors/hsiao-ting-su" class="post2-author-link" data-astro-cid-lld2kwgh><strong data-astro-cid-lld2kwgh>Hsiao-Ting Su</strong></a></span> <span class="post2-date" data-astro-cid-lld2kwgh>July 13, 2023</span> <span data-astro-cid-lld2kwgh>
+Posted in <a href="/blog/categories/aac-resources" class="post2-category-link" data-astro-cid-lld2kwgh><strong data-astro-cid-lld2kwgh>AAC Resources</strong></a> </span> </div> <div class="post2-tags" data-astro-cid-lld2kwgh> <span class="post2-tags-label" data-astro-cid-lld2kwgh>Tags:</span> <a href="/blog/tags/high-tech-aac-app" class="post2-tag" data-astro-cid-lld2kwgh> High Tech AAC App </a> </div> </header> <!-- Featured Image --> <div class="post2-featured-image" data-astro-cid-lld2kwgh> <img src="/assets/images/aac-apply/1.avif" alt="AAC溝通輔具申請" data-astro-cid-lld2kwgh> </div> <!-- Blog Post Content --> <article class="post2-article" data-astro-cid-lld2kwgh> <p>How to apply for an AAC device?</p>
+<p><a href="https://www.facebook.com/happiness2gether">語悅科技</a>做了這個很棒的溝通輔具申請懶人包，推薦給大家～</p>
+<ol>
+<li>具備身心障礙證明</li>
+<li>到輔具中心或到醫院找語言治療師，取得輔具評估報告書 (報告書可在下方下載)</li>
+<li>向戶籍地鄉鎮區公所提出申請</li>
+<li>取得核定函後可購買輔具</li>
+<li>向公所提出核銷</li>
+<li>公所核對後即撥款</li>
+</ol>
+<p><a href="https://youtu.be/a2WSFjTUqc0">https://youtu.be/a2WSFjTUqc0</a> 流程可以從影片1:45開始看</p>
+<p>E款F款現已改為 溝通輔具項次98、99、100，申請流程沒有改變</p>
+<p><img src="/assets/images/aac-apply/1.avif" alt="Alt text"/></p>
+<p>溝通輔具評估有兩個方法，1是到<u><strong>輔具中心</strong></u>，2是到<u><strong>醫院找語言治療師</strong></u></p>
+<ol>
+<li>
+<u><strong>輔具中心</strong></u>
+</li>
+</ol>
+<p>打電話到各縣市輔具中心預約評估，中心會安排時間評估。</p>
+<p>領有輔具評估資格的語言治療師進行評估並出報告，後續的資料會由輔具中心幫忙跑(如：報告送到公所等等)。</p>
+<p>等公文下來會寄到個案家，由個案端去買輔具(先付錢)，買完會有證明，再把資料搜集完給公所請款。</p>
+<ol start="2">
+<li>
+<u><strong>醫院找語言治療師</strong></u>
+</li>
+</ol>
+<p>請醫生開六個月內有效之醫院診斷證明書(標註有溝通困難和需要溝通輔具)和輔具評估證明(這可以由語言治療師和醫師溝通)</p>
+<p>醫院的語言治療師寫輔具評估報告書(有輔具評估證明就可以蓋醫院章)</p>
+<p>請個案將<u style="color: blue;">輔具評估報告書</u>、<u style="color: blue;">診斷證明書</u>、<u style="color: blue;">輔具評估證明</u>拿去公所申請。</p>
+<p>公文下來後個案可以去購買輔具(先付錢)，買完會有證明，再把資料搜集完給公所請款。</p>
+<p>目前溝通輔具申請，因為規定修改，一般收入民眾輔具最高只能補助平板$10,000 (項次100 溝通輔具-動態版面型語音溝通器)，或是軟體$5,000 (項次99 溝通輔具-平板適用語音溝通軟體)，僅能選一項次補助。</p>
+<p><img src="/assets/images/aac-apply/2.avif" alt="Alt text"/></p>
+<p>所以如果想要買國外好用的AAC app，目前有中文的是 <a href="https://www.tobiidynavox.cn/products/td-snap">TD Snap</a> 和 <a href="https://touchchatapp.com/mandarin">TouchChat WordPower 60</a>，很可惜的是，國內app若沒有廠商代理，區公所不給過 (有的給過有的不給過…)，無法申請補助。目前最好的解決辦法是，找有廠商補助的AAC (目前最便宜是”聽我說”，$15,000)，買了之後請款拿到補助平板的1萬元，再自購AAC app: TD Snap 月費制每月約台幣$300、TouchChat WordPower 60 買斷約台幣$9779。</p>
+<p>有問題可以到臉書<a href="https://www.facebook.com/groups/291665680045560/?rdid=7Jm1GjCgT5gNkXK2&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2FhinE3kqiHJoRRvBb%2F#">中文AAC社團詢問</a>。</p>
+<p>附上購置國外輔具應可補助的公文，大家可以拿去跟區公所問。</p>
+<p><a href="/assets/docs/%E7%B7%A8%E8%99%9F8-%E8%B3%BC%E7%BD%AE%E5%9C%8B%E5%A4%96%E8%BC%94%E5%85%B7%E5%8F%AF%E8%A3%9C%E5%8A%A9%EF%BC%8C%E6%89%80%E6%9C%89%E7%9B%B8%E9%97%9C%E6%86%91%E8%AD%89%E6%87%89%E8%AD%AF%E8%A8%BB%E6%9C%AC%E5%9C%8B%E6%96%87%E4%B8%A6%E7%B0%BD%E5%90%8D(1020703).pdf">附上購置國外輔具應可補助的公文，大家可以拿去跟區公所問。</a></p>
+<p><a href="/assets/docs/%E8%BC%94%E5%85%B7%E8%A9%95%E4%BC%B0%E5%A0%B1%E5%91%8A%E6%9B%B8%E7%B7%A8%E8%99%9F12%E6%BA%9D%E9%80%9A%E8%BC%94%E5%85%B7(%E5%90%AB%E8%AA%9E%E8%A8%80%E6%B2%BB%E7%99%82%E6%BA%9D%E9%80%9A%E8%A8%93%E7%B7%B4%E8%A8%88%E7%95%AB).odt">輔具評估報告書編號12溝通輔具(含語言治療溝通訓練計畫) — 下載處</a></p> </article> <!-- You Might Also Like Section -->  <hr class="post2-separator" data-astro-cid-lld2kwgh> <section class="post2-similar" data-astro-cid-lld2kwgh> <h2 class="post2-similar__title" data-astro-cid-lld2kwgh>You Might Also Like</h2> <div class="post2-similar__grid" data-astro-cid-lld2kwgh> <a href="/blog/posts/Mandarin-AAC-Handouts" class="post2-similar__card" data-astro-cid-lld2kwgh> <img src="/assets/images/handouts/1.webp" alt="AAC衛教單 Mandarin AAC Handouts" class="post2-similar__image" data-astro-cid-lld2kwgh> <div class="post2-similar__content" data-astro-cid-lld2kwgh> <h3 class="post2-similar__card-title" data-astro-cid-lld2kwgh>AAC衛教單 Mandarin AAC Handouts</h3> <p class="post2-similar__excerpt" data-astro-cid-lld2kwgh>這份AAC衛教單包含: AAC的種類 Types of AAC AAC如何開始? How to begin with AAC? AAC輔助語言輸入(示範) Aided language stimulation AAC輔助語言輸入(示範)怎麼做呢?</p> </div> </a><a href="/blog/posts/aac-td-snap" class="post2-similar__card" data-astro-cid-lld2kwgh> <img src="/assets/images/TD-Snap/cover.png" alt="高科技溝通輔具AAC app: TD Snap" class="post2-similar__image" data-astro-cid-lld2kwgh> <div class="post2-similar__content" data-astro-cid-lld2kwgh> <h3 class="post2-similar__card-title" data-astro-cid-lld2kwgh>高科技溝通輔具AAC app: TD Snap</h3> <p class="post2-similar__excerpt" data-astro-cid-lld2kwgh>再推薦一個中文適合小孩使用、有豐富語言系統的AAC app：PRC Saltillo 公司的⭐️TouchChat WordPower 60有中文版囉！頁面是簡體中文不過可以一個一個改成繁體字。</p> </div> </a><a href="/blog/posts/high-tech-aac-app" class="post2-similar__card" data-astro-cid-lld2kwgh> <img src="/assets/images/touchchat/aac_app_fig1.avif" alt="TouchChat WordPower 語力60" class="post2-similar__image" data-astro-cid-lld2kwgh> <div class="post2-similar__content" data-astro-cid-lld2kwgh> <h3 class="post2-similar__card-title" data-astro-cid-lld2kwgh>TouchChat WordPower 語力60</h3> <p class="post2-similar__excerpt" data-astro-cid-lld2kwgh>高科技溝通輔具app: TD Snap TD Snap是目前我看到中文適合小孩使用的AAC app，有豐富的語言系統（robust language system ），包含已內建好的核心詞彙和邊緣詞彙。</p> </div> </a> </div> </section>  <!-- Bottom separator --> <hr class="post2-separator" data-astro-cid-lld2kwgh> </div>  </div>   </main> <footer style="--footer-bg:var(--theme-surface-1); --footer-color:var(--theme-on-surface-1)" data-astro-cid-ofitbb36> <div class="content__container " data-astro-cid-swtg25lo>  <div class="footer-grid__container" data-astro-cid-ofitbb36> <div class="footer-brand__container" data-astro-cid-ofitbb36> <div data-astro-cid-ofitbb36> <a href="/" data-astro-cid-ofitbb36> <p class="odyssey-logo" data-astro-cid-tvrurpns>AAC今天就開始</p>  </a> </div> <ul class="footer-socials__list" data-astro-cid-ofitbb36> <li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.instagram.com/aacaactionnow/n" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Instagram profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:instagram">  <symbol id="ai:mdi:instagram"><path fill="currentColor" d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"/></symbol><use xlink:href="#ai:mdi:instagram"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://youtube.com/@aac773?si=uD0oG-QBl7YKmKfq" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Youtube profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:youtube">  <symbol id="ai:mdi:youtube"><path fill="currentColor" d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73"/></symbol><use xlink:href="#ai:mdi:youtube"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.facebook.com/aacaactionnow/" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Facebook profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:facebook">  <symbol id="ai:mdi:facebook"><path fill="currentColor" d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"/></symbol><use xlink:href="#ai:mdi:facebook"></use>  </svg> </a> </li><li class="footer-socials__item" data-astro-cid-ofitbb36> <a href="https://www.pinterest.com/aacaactionnow/" target="_blank" rel="noopener noreferrer" class="footer-socials__link" title="Open Pinterest profile" data-astro-cid-ofitbb36> <svg width="24" height="24" viewBox="0 0 24 24" data-astro-cid-ofitbb36 data-icon="mdi:pinterest">  <symbol id="ai:mdi:pinterest"><path fill="currentColor" d="M9.04 21.54c.96.29 1.93.46 2.96.46a10 10 0 0 0 10-10A10 10 0 0 0 12 2A10 10 0 0 0 2 12c0 4.25 2.67 7.9 6.44 9.34c-.09-.78-.18-2.07 0-2.96l1.15-4.94s-.29-.58-.29-1.5c0-1.38.86-2.41 1.84-2.41c.86 0 1.26.63 1.26 1.44c0 .86-.57 2.09-.86 3.27c-.17.98.52 1.84 1.52 1.84c1.78 0 3.16-1.9 3.16-4.58c0-2.4-1.72-4.04-4.19-4.04c-2.82 0-4.48 2.1-4.48 4.31c0 .86.28 1.73.74 2.3c.09.06.09.14.06.29l-.29 1.09c0 .17-.11.23-.28.11c-1.28-.56-2.02-2.38-2.02-3.85c0-3.16 2.24-6.03 6.56-6.03c3.44 0 6.12 2.47 6.12 5.75c0 3.44-2.13 6.2-5.18 6.2c-.97 0-1.92-.52-2.26-1.13l-.67 2.37c-.23.86-.86 2.01-1.29 2.7z"/></symbol><use xlink:href="#ai:mdi:pinterest"></use>  </svg> </a> </li> </ul> </div> <div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>Landing Pages</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="/landing-pages/landing-1" data-astro-cid-ofitbb36>什麼是AAC？</a> </li><li data-astro-cid-ofitbb36> <a href="research-recruitment" data-astro-cid-ofitbb36>研究招募</a> </li> </ul> </div><div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>關於我</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="/about" data-astro-cid-ofitbb36>About</a> </li><li data-astro-cid-ofitbb36> <a href="/blog" data-astro-cid-ofitbb36>Blog</a> </li><li data-astro-cid-ofitbb36> <a href="/cv" data-astro-cid-ofitbb36>CV</a> </li> </ul> </div><div data-astro-cid-ofitbb36> <p data-astro-cid-ofitbb36><strong data-astro-cid-ofitbb36>相關連結</strong></p> <ul class="footer-link__list" data-astro-cid-ofitbb36> <li data-astro-cid-ofitbb36> <a href="https://www.facebook.com/groups/291665680045560/" data-astro-cid-ofitbb36>中文AAC FB社團</a> </li><li data-astro-cid-ofitbb36> <a href="https://open.spotify.com/show/6BzuKxzKWhiR0w0635KTEF" data-astro-cid-ofitbb36>語言摯聊室 Podcast</a> </li> </ul> </div> </div> <div class="footer-copyright__container" data-astro-cid-ofitbb36>  <p data-astro-cid-ofitbb36>Copyright &copy; 2026 AAC Action Now</p> </div>  </div>  </footer>  </body></html> 

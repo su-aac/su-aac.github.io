@@ -1,0 +1,324 @@
+---
+import Layout from '../../../layouts/Page.astro';
+import { parse } from 'date-fns';
+
+export async function getStaticPaths() {
+  const allPosts = await Astro.glob('../posts/*.mdx');
+  const sortedPosts = allPosts.sort((a, b) => {
+    const dateA = parse(a.frontmatter.publishDate, 'MMM d, yyyy', new Date());
+    const dateB = parse(b.frontmatter.publishDate, 'MMM d, yyyy', new Date());
+    return dateB.valueOf() - dateA.valueOf();
+  });
+
+  const categoriesUnique = new Set<string>();
+
+  sortedPosts.forEach(post => {
+    if (post.frontmatter.category) {
+      categoriesUnique.add(post.frontmatter.category);
+    }
+  });
+
+  return Array.from(categoriesUnique).map((category) => {
+    const posts = sortedPosts.filter((post) => post.frontmatter.category === category);
+    return {
+      params: { slug: category.toLowerCase().replace(/\s+/g, '-') },
+      props: {
+        category,
+        posts,
+      },
+    };
+  });
+}
+
+const { category, posts } = Astro.props;
+
+const seo = {
+  title: `${category} | Blog`,
+  description: `Articles in ${category} category`,
+};
+
+const formatDate = (dateStr: string) => {
+  try {
+    const date = parse(dateStr, 'MMM d, yyyy', new Date());
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
+  } catch {
+    return dateStr;
+  }
+};
+---
+
+<Layout seo={seo}>
+  <div class="category-page-container">
+    <header class="category-page-header">
+      <h1 class="category-page-title">
+        <span class="category-page-label">Category:</span>
+        {category}
+      </h1>
+      <p class="category-page-count">{posts.length} {posts.length === 1 ? 'article' : 'articles'}</p>
+
+      <!-- Navigation -->
+      <nav class="category-page-nav">
+        <a href="/blog/categories" class="category-page-nav__link category-page-nav__link--active">Categories</a>
+        <a href="/blog/tags" class="category-page-nav__link">Tags</a>
+        <a href="/blog/authors" class="category-page-nav__link">Authors</a>
+      </nav>
+    </header>
+
+    <hr class="category-page-separator" />
+
+    <section class="category-page-posts">
+      {posts.map((post: any) => (
+        <article class="category-post-card">
+          {post.frontmatter.featuredImage && (
+            <a href={post.url} class="category-post-card__image-link">
+              <img
+                src={post.frontmatter.featuredImage}
+                alt={post.frontmatter.title}
+                class="category-post-card__image"
+              />
+            </a>
+          )}
+          <div class="category-post-card__content">
+            <span class="category-post-card__date">{formatDate(post.frontmatter.publishDate)}</span>
+            <h2 class="category-post-card__title">
+              <a href={post.url}>{post.frontmatter.title}</a>
+            </h2>
+            {post.frontmatter.excerpt && (
+              <p class="category-post-card__excerpt">{post.frontmatter.excerpt}</p>
+            )}
+            <a href={post.url} class="category-post-card__read-more">Read More →</a>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    {posts.length === 0 && (
+      <p class="category-page-empty">No articles found in this category.</p>
+    )}
+
+    <div class="category-page-back">
+      <a href="/blog" class="category-page-back__link">← Back to Blog</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .category-page-container {
+    max-width: var(--container-max-width-narrow, 960px);
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+    min-height: 60vh;
+  }
+
+  .category-page-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .category-page-title {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--theme-on-bg);
+    margin-bottom: 0.5rem;
+  }
+
+  .category-page-label {
+    font-weight: 400;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+  }
+
+  .category-page-count {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 0.9375rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Navigation */
+  .category-page-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .category-page-nav__link {
+    display: inline-block;
+    color: var(--theme-on-bg);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--theme-button-border-radius, 0.5rem);
+    transition: all var(--theme-transition);
+  }
+
+  .category-page-nav__link:hover {
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+  }
+
+  .category-page-nav__link--active {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .category-page-nav__link--active:hover {
+    background-color: var(--theme-primary-hover);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .category-page-separator {
+    border: none;
+    border-top: 1px solid var(--theme-surface-1);
+    margin: 2rem 0;
+  }
+
+  .category-page-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Post Card - Horizontal Layout */
+  .category-post-card {
+    display: flex;
+    gap: 1.5rem;
+    background: var(--theme-bg);
+    border: 1px solid var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    overflow: hidden;
+    transition: box-shadow var(--theme-transition);
+  }
+
+  .category-post-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  .category-post-card__image-link {
+    flex-shrink: 0;
+    width: 200px;
+  }
+
+  .category-post-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 150px;
+  }
+
+  .category-post-card__content {
+    flex: 1;
+    padding: 1.25rem 1.25rem 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .category-post-card__date {
+    font-size: 0.8125rem;
+    color: var(--theme-on-bg);
+    opacity: 0.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-post-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+
+  .category-post-card__title a {
+    color: var(--theme-on-bg);
+    text-decoration: none;
+  }
+
+  .category-post-card__title a:hover {
+    color: var(--theme-primary);
+  }
+
+  .category-post-card__excerpt {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .category-post-card__read-more {
+    color: var(--theme-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .category-post-card__read-more:hover {
+    color: var(--theme-primary-hover);
+    text-decoration: underline;
+  }
+
+  .category-page-empty {
+    text-align: center;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 1rem;
+    margin-top: 2rem;
+  }
+
+  .category-page-back {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  .category-page-back__link {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    text-decoration: none;
+    font-size: 0.875rem;
+  }
+
+  .category-page-back__link:hover {
+    color: var(--theme-primary);
+    opacity: 1;
+  }
+
+  @media (max-width: 640px) {
+    .category-page-container {
+      padding: 1rem 1rem 3rem;
+    }
+
+    .category-post-card {
+      flex-direction: column;
+    }
+
+    .category-post-card__image-link {
+      width: 100%;
+    }
+
+    .category-post-card__image {
+      height: 180px;
+    }
+
+    .category-post-card__content {
+      padding: 1rem;
+    }
+
+    .category-page-nav {
+      gap: 0.75rem;
+    }
+
+    .category-page-nav__link {
+      padding: 0.375rem 0.75rem;
+      font-size: 0.875rem;
+    }
+  }
+</style>

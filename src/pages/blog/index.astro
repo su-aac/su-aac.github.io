@@ -1,48 +1,286 @@
 ---
 import { parse, isBefore } from 'date-fns';
-import {
-	Container,
-	TextCardSection,
-	BlogPostsList,
-} from '@components/odyssey-theme';
 import Layout from '../../layouts/Page.astro';
-import NewsletterForm from '../../components/forms/NewsletterForm.astro';
 
 const posts = await Astro.glob('./posts/*.mdx').then(posts =>
-	posts
-		.map(({ frontmatter, url }) => ({
-			title: frontmatter.title,
-			description: frontmatter.description,
-			authors: frontmatter.authors,
-			publishDate: parse(frontmatter.publishDate, 'MMMM d, yyyy', new Date()),
-			featuredImage: frontmatter.featuredImage,
-			excerpt: frontmatter.excerpt,
-			href: url,
-		}))
-		.sort((a, b) => {
-			if (isBefore(a.publishDate, b.publishDate)) return 1;
-			if (isBefore(b.publishDate, a.publishDate)) return -1;
-			return 0;
-		})
+  posts
+    .map(({ frontmatter, url }) => ({
+      title: frontmatter.title,
+      description: frontmatter.description,
+      author: frontmatter.author,
+      category: frontmatter.category,
+      publishDate: frontmatter.publishDate,
+      parsedDate: parse(frontmatter.publishDate, 'MMM d, yyyy', new Date()),
+      featuredImage: frontmatter.featuredImage,
+      excerpt: frontmatter.excerpt,
+      tags: frontmatter.tags || [],
+      href: url,
+    }))
+    .sort((a, b) => {
+      if (isBefore(a.parsedDate, b.parsedDate)) return 1;
+      if (isBefore(b.parsedDate, a.parsedDate)) return -1;
+      return 0;
+    })
 );
 
 const seo = {
-	title: 'Blog | Astro Odyssey Theme',
-	description: 'Astro Odyssey Theme Blog Page',
+  title: 'Blog | AAC Resources',
+  description: 'Articles about AAC and communication resources',
+};
+
+const formatDate = (dateStr: string) => {
+  try {
+    const date = parse(dateStr, 'MMM d, yyyy', new Date());
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
+  } catch {
+    return dateStr;
+  }
 };
 ---
 
 <Layout {seo}>
-	<Container>
-		<section class="blog-posts-list__section">
-			<h2>Recent Posts</h2>
-			<BlogPostsList posts={posts} />
-		</section>
-	</Container>
+  <div class="blog2-container">
+    <!-- Header -->
+    <header class="blog2-header">
+      <h1 class="blog2-title">Blog</h1>
+      <p class="blog2-subtitle">Articles about AAC and communication resources</p>
+
+      <!-- Navigation -->
+      <nav class="blog2-nav">
+        <a href="/blog/categories" class="blog2-nav__link">Categories</a>
+        <a href="/blog/tags" class="blog2-nav__link">Tags</a>
+        <a href="/blog/authors" class="blog2-nav__link">Authors</a>
+      </nav>
+    </header>
+
+    <hr class="blog2-separator" />
+
+    <!-- Posts Grid -->
+    <section class="blog2-posts">
+      {posts.map((post) => (
+        <article class="post-card">
+          {post.featuredImage && (
+            <a href={post.href} class="post-card__image-link">
+              <img src={post.featuredImage} alt={post.title} class="post-card__image" />
+            </a>
+          )}
+          <div class="post-card__content">
+            <div class="post-card__meta">
+              <span class="post-card__date">{formatDate(post.publishDate)}</span>
+            </div>
+            <h2 class="post-card__title">
+              <a href={post.href}>{post.title}</a>
+            </h2>
+            {post.excerpt && (
+              <p class="post-card__excerpt">{post.excerpt}</p>
+            )}
+            {post.tags && post.tags.length > 0 && (
+              <div class="post-card__tags">
+                {post.tags.slice(0, 3).map((tag: string) => (
+                  <a
+                    href={`/blog/tags/${tag.toLowerCase().replace(/\s+/g, '-')}`}
+                    class="post-card__tag"
+                  >
+                    {tag}
+                  </a>
+                ))}
+              </div>
+            )}
+            <a href={post.href} class="post-card__read-more">Read More →</a>
+          </div>
+        </article>
+      ))}
+    </section>
+  </div>
 </Layout>
 
 <style>
-	.blog-posts-list__section {
-		margin: var(--section-margin) auto;
-	}
+  .blog2-container {
+    max-width: var(--container-max-width, 1440px);
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* Header */
+  .blog2-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .blog2-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--theme-on-bg);
+    margin-bottom: 0.5rem;
+  }
+
+  .blog2-subtitle {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Navigation */
+  .blog2-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .blog2-nav__link {
+    display: inline-block;
+    color: var(--theme-on-bg);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: var(--theme-button-border-radius, 0.5rem);
+    transition: all var(--theme-transition);
+  }
+
+  .blog2-nav__link:hover {
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+  }
+
+  .blog2-separator {
+    border: none;
+    border-top: 1px solid var(--theme-surface-1);
+    margin: 2rem 0;
+  }
+
+  /* Posts Grid */
+  .blog2-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  /* Post Card */
+  .post-card {
+    background: var(--theme-bg);
+    border: 1px solid var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    overflow: hidden;
+    transition: box-shadow var(--theme-transition), transform var(--theme-transition);
+  }
+
+  .post-card:hover {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  .post-card__image-link {
+    display: block;
+    overflow: hidden;
+  }
+
+  .post-card__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card:hover .post-card__image {
+    transform: scale(1.03);
+  }
+
+  .post-card__content {
+    padding: 1.25rem;
+  }
+
+  .post-card__meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .post-card__date {
+    color: var(--theme-on-bg);
+    opacity: 0.6;
+  }
+
+  .post-card__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-card__title a {
+    color: var(--theme-on-bg);
+    text-decoration: none;
+  }
+
+  .post-card__title a:hover {
+    color: var(--theme-primary);
+  }
+
+  .post-card__excerpt {
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .post-card__tag {
+    display: inline-block;
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    padding: 0.1875rem 0.625rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: background-color var(--theme-transition), color var(--theme-transition);
+  }
+
+  .post-card__tag:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  .post-card__read-more {
+    display: inline-block;
+    color: var(--theme-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .post-card__read-more:hover {
+    color: var(--theme-primary-hover);
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .blog2-container {
+      padding: 1rem 1rem 3rem;
+    }
+
+    .blog2-posts {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
 </style>

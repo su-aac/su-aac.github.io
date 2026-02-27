@@ -1,0 +1,544 @@
+---
+import Layout from './Page.astro';
+import { generateTagData } from '../utils/helpers';
+
+const { content: { title, description, publishDate, canonicalURL, featuredImage, tags, author, category } } = Astro.props;
+
+let allTagsData = [];
+
+if (tags && tags.length > 0) {
+  allTagsData = generateTagData(tags);
+}
+
+const seo = {
+  title,
+  description,
+  publishDate,
+  canonicalURL,
+  image: featuredImage,
+};
+
+const formattedDate = publishDate ? new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}).format(new Date(publishDate)) : publishDate;
+
+// Get related posts (same category OR similar tags, excluding current post)
+// Always show 3 posts - fill with other posts if not enough matches
+const allPosts = await Astro.glob('../pages/blog/posts/*.mdx');
+const currentTags = tags || [];
+
+const otherPosts = allPosts.filter((post) => post.frontmatter.title !== title);
+
+const scoredPosts = otherPosts.map((post) => {
+  let score = 0;
+  // Same category = 3 points
+  if (post.frontmatter.category === category) {
+    score += 3;
+  }
+  // Each matching tag = 1 point
+  const postTags = post.frontmatter.tags || [];
+  currentTags.forEach((tag: string) => {
+    if (postTags.includes(tag)) {
+      score += 1;
+    }
+  });
+  return { ...post, score };
+});
+
+// Get posts with matches first, sorted by score
+const matchedPosts = scoredPosts
+  .filter((post) => post.score > 0)
+  .sort((a, b) => b.score - a.score);
+
+// Get remaining posts (no matches) for fallback
+const unmatchedPosts = scoredPosts
+  .filter((post) => post.score === 0)
+  .sort(() => Math.random() - 0.5); // Randomize unmatched posts
+
+// Combine: matched posts first, then fill with unmatched to reach 3
+const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
+---
+
+<Layout seo={seo}>
+  <div class="post2-container">
+    <!-- Horizontal separator -->
+    <hr class="post2-separator" />
+
+    <!-- Blog Post Header -->
+    <header class="post2-header">
+      <h1 class="post2-title">{title}</h1>
+
+      <div class="post2-meta">
+        {author && (
+          <span>By <a href={`/blog/authors/${author.toLowerCase().replace(/\s+/g, '-')}`} class="post2-author-link"><strong>{author}</strong></a></span>
+        )}
+        <span class="post2-date">{formattedDate}</span>
+        {category && (
+          <span>
+            Posted in <a href={`/blog/categories/${category.toLowerCase().replace(/\s+/g, '-')}`} class="post2-category-link"><strong>{category}</strong></a>
+          </span>
+        )}
+      </div>
+
+      {allTagsData.length > 0 && (
+        <div class="post2-tags">
+          <span class="post2-tags-label">Tags:</span>
+          {allTagsData.map(tag => (
+            <a href={`/blog/tags/${tag.slug}`} class="post2-tag">
+              {tag.title}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+
+    <!-- Featured Image -->
+    {featuredImage && (
+      <div class="post2-featured-image">
+        <img src={featuredImage} alt={title} />
+      </div>
+    )}
+
+    <!-- Blog Post Content -->
+    <article class="post2-article">
+      <slot />
+    </article>
+
+    <!-- You Might Also Like Section -->
+    {relatedPosts.length > 0 && (
+      <>
+        <hr class="post2-separator" />
+        <section class="post2-similar">
+          <h2 class="post2-similar__title">You Might Also Like</h2>
+          <div class="post2-similar__grid">
+            {relatedPosts.map((post) => (
+              <a href={post.url} class="post2-similar__card">
+                {post.frontmatter.featuredImage && (
+                  <img
+                    src={post.frontmatter.featuredImage}
+                    alt={post.frontmatter.title}
+                    class="post2-similar__image"
+                  />
+                )}
+                <div class="post2-similar__content">
+                  <h3 class="post2-similar__card-title">{post.frontmatter.title}</h3>
+                  {post.frontmatter.excerpt && (
+                    <p class="post2-similar__excerpt">{post.frontmatter.excerpt}</p>
+                  )}
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      </>
+    )}
+
+    <!-- Bottom separator -->
+    <hr class="post2-separator" />
+  </div>
+</Layout>
+
+<style>
+  .post2-container {
+    max-width: var(--container-max-width-narrow, 960px);
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+
+  .post2-separator {
+    border: none;
+    border-top: 1px solid var(--theme-surface-1);
+    margin: 2rem 0;
+  }
+
+  /* Header Styles */
+  .post2-header {
+    margin-bottom: 2rem;
+  }
+
+  .post2-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--theme-on-bg);
+  }
+
+  .post2-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+  }
+
+  .post2-meta strong {
+    color: var(--theme-on-bg);
+  }
+
+  .post2-author-link,
+  .post2-category-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .post2-author-link:hover,
+  .post2-category-link:hover {
+    text-decoration: underline;
+    color: var(--theme-primary);
+  }
+
+  .post2-author-link strong,
+  .post2-category-link strong {
+    color: var(--theme-on-bg);
+    transition: color var(--theme-transition);
+  }
+
+  .post2-author-link:hover strong,
+  .post2-category-link:hover strong {
+    color: var(--theme-primary);
+  }
+
+  .post2-date {
+    color: var(--theme-on-bg);
+  }
+
+  /* Tags */
+  .post2-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+  }
+
+  .post2-tags-label {
+    margin-right: 0.25rem;
+  }
+
+  .post2-tag {
+    display: inline-block;
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.375rem;
+    text-decoration: none;
+    font-size: 0.8125rem;
+    transition: background-color var(--theme-transition), color var(--theme-transition);
+  }
+
+  .post2-tag:hover {
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary, #ffffff);
+  }
+
+  /* Featured Image */
+  .post2-featured-image {
+    margin-bottom: 2rem;
+  }
+
+  .post2-featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Article Prose Styles - Storyteller inspired */
+  .post2-article {
+    color: var(--theme-on-bg);
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+
+  /* Headings */
+  .post2-article :global(h1) {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--theme-on-bg);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .post2-article :global(h2) {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--theme-on-bg);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--theme-surface-1);
+  }
+
+  .post2-article :global(h3) {
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--theme-on-bg);
+    margin-top: 1.75rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .post2-article :global(h4) {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--theme-on-bg);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Paragraphs */
+  .post2-article :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  /* Links */
+  .post2-article :global(a) {
+    color: var(--theme-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .post2-article :global(a:hover) {
+    color: var(--theme-primary-hover);
+  }
+
+  /* Lists */
+  .post2-article :global(ul),
+  .post2-article :global(ol) {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+  }
+
+  .post2-article :global(ul) {
+    list-style-type: disc;
+  }
+
+  .post2-article :global(ol) {
+    list-style-type: decimal;
+  }
+
+  .post2-article :global(li) {
+    margin-bottom: 0.5rem;
+    padding-left: 0.375rem;
+  }
+
+  .post2-article :global(li::marker) {
+    color: var(--theme-on-bg);
+    opacity: 0.5;
+  }
+
+  /* Blockquotes */
+  .post2-article :global(blockquote) {
+    border-left: 4px solid var(--theme-surface-1);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--theme-on-bg);
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  .post2-article :global(blockquote p) {
+    margin-bottom: 0;
+  }
+
+  /* Code */
+  .post2-article :global(code) {
+    background-color: var(--theme-surface-1);
+    color: var(--theme-on-surface-1);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  }
+
+  .post2-article :global(pre) {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    padding: 1rem 1.25rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  .post2-article :global(pre code) {
+    background-color: transparent;
+    color: inherit;
+    padding: 0;
+    border-radius: 0;
+    font-size: inherit;
+  }
+
+  /* Images */
+  .post2-article :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 1.5rem 0;
+  }
+
+  /* Tables */
+  .post2-article :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9375rem;
+  }
+
+  .post2-article :global(th),
+  .post2-article :global(td) {
+    border: 1px solid var(--theme-surface-1);
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+
+  .post2-article :global(th) {
+    background-color: var(--theme-surface-1);
+    font-weight: 600;
+    color: var(--theme-on-surface-1);
+  }
+
+  .post2-article :global(tr:nth-child(even)) {
+    background-color: var(--theme-surface-1);
+  }
+
+  /* Horizontal Rule */
+  .post2-article :global(hr) {
+    border: none;
+    border-top: 1px solid var(--theme-surface-1);
+    margin: 2rem 0;
+  }
+
+  /* Strong and Emphasis */
+  .post2-article :global(strong) {
+    font-weight: 600;
+    color: var(--theme-on-bg);
+  }
+
+  .post2-article :global(em) {
+    font-style: italic;
+  }
+
+  /* You Might Also Like Section */
+  .post2-similar {
+    margin-top: 1rem;
+  }
+
+  .post2-similar__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--theme-on-bg);
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .post2-similar__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post2-similar__card {
+    display: flex;
+    flex-direction: column;
+    background: var(--theme-bg);
+    border: 1px solid var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    overflow: hidden;
+    text-decoration: none;
+    transition: all var(--theme-transition);
+  }
+
+  .post2-similar__card:hover {
+    box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .post2-similar__image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .post2-similar__content {
+    padding: 1rem;
+  }
+
+  .post2-similar__card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--theme-on-bg);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post2-similar__card:hover .post2-similar__card-title {
+    color: var(--theme-primary);
+  }
+
+  .post2-similar__excerpt {
+    font-size: 0.8125rem;
+    color: var(--theme-on-bg);
+    opacity: 0.7;
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 640px) {
+    .post2-container {
+      padding: 0 1rem 2rem;
+    }
+
+    .post2-title {
+      font-size: 1.5rem;
+    }
+
+    .post2-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .post2-article {
+      font-size: 1rem;
+    }
+
+    .post2-article :global(h2) {
+      font-size: 1.5rem;
+    }
+
+    .post2-article :global(h3) {
+      font-size: 1.25rem;
+    }
+
+    .post2-similar__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .post2-similar__title {
+      font-size: 1.25rem;
+    }
+  }
+</style>

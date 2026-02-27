@@ -1,0 +1,75 @@
+---
+import { TextSection,
+         TextCardSection,
+         Container,
+         ContactForm
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import HeroSection from '../../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'About Me | AAC Action Now',
+	description: 'A speech-language pathologist passionate about AAC, sharing knowledge, assessment, intervention, and resources.',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>A Speech-Language Pathologist Passionate About AAC</h1>
+      <p>On this blog, I will share:</p>
+        <ul>
+          <li>AAC Knowledge</li>
+          <li>AAC Assessment & Intervention</li>
+          <li>AAC Activity Design</li>
+          <li>AAC Teaching & Application Resources</li>
+        </ul>
+      <p>Feel free to reach out, give me suggestions, or ask questions!</p>
+		</div>
+    <picture slot="image-container">
+      <img
+        src="/assets/images/home/hts.PNG"
+        alt="AAC Language Therapist"
+        id="home-hero-image"
+      />
+    </picture>
+	</HeroSection>
+
+  <TextSection narrow>
+    <p>
+      Hsiao-Ting is a licensed speech-language pathologist from Taiwan, currently pursuing
+      her Ph.D. in Speech-Language Pathology at the University of North Carolina at Chapel Hill.
+      Her research focuses on communication and literacy instruction for individuals with
+      communication disorders. She provides assessment and intervention for language, articulation,
+      swallowing, and augmentative and alternative communication (AAC) for children and adults
+      with special needs. Her clients include individuals with language disorders, cerebral palsy,
+      autism, intellectual disabilities, and other diagnoses.
+    </p>
+
+    <p>
+      She has worked in hospitals and related institutions in Taiwan, as well as school clinics,
+      special schools, and general elementary schools in the United States. She has also participated
+      in the Pittsburgh AAC Summer Camp and the Michigan Literacy & AAC Summer Camp, helping children
+      build communication and language skills.
+    </p>
+
+    <p>
+      In the United States, Hsiao-Ting has seen how individuals with severe disabilities,
+      multiple disabilities, and minimal verbal communication can have effective communication
+      tools through AAC. She hopes to share her experiences and learnings here, so that more
+      people can learn about AAC, and to continue promoting augmentative and alternative
+      communication concepts and practices in Taiwan.
+    </p>
+
+    <br>
+    <h2>Contact</h2>
+      <p>Feel free to contact me via email or social media.</p>
+      <div>
+        <p>
+          <em><a href="mailto:Hsiao-Ting_Su@med.unc.edu">Hsiao-Ting_Su (at) med.unc.edu</a></em>
+          • <em><a href="https://www.instagram.com/aacaactionnow/" target="_blank" rel="noopener">Instagram</a></em>
+        </p>
+      </div>
+  </TextSection>
+
+</Layout>
