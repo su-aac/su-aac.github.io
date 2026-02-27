@@ -106,6 +106,36 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
       <slot />
     </article>
 
+    <!-- Comment Section -->
+    <hr class="post2-separator" />
+    <section class="post2-comments">
+      <div class="post2-comments__header">
+        <h2 class="post2-comments__title">
+          <svg class="post2-comments__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+          </svg>
+          Comments
+        </h2>
+      </div>
+      <div class="post2-comments__container">
+        <script src="https://giscus.app/client.js"
+          data-repo="su-aac/su-aac.github.io"
+          data-repo-id="R_kgDORCDuTw"
+          data-category="Blog Comments"
+          data-category-id="DIC_kwDORCDuT84C3WYc"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="gruvbox_light"
+          data-lang="en"
+          crossorigin="anonymous"
+          async>
+        </script>
+      </div>
+    </section>
+
     <!-- You Might Also Like Section -->
     {relatedPosts.length > 0 && (
       <>
@@ -505,6 +535,49 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
     overflow: hidden;
   }
 
+  /* Comment Section Styles - ThoughtLite inspired */
+  .post2-comments {
+    margin-top: 1rem;
+  }
+
+  .post2-comments__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .post2-comments__title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--theme-on-bg);
+    margin: 0;
+  }
+
+  .post2-comments__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--theme-primary);
+  }
+
+  .post2-comments__container {
+    min-height: 100px;
+  }
+
+  /* Giscus container styling */
+  .post2-comments__container .giscus {
+    width: 100%;
+  }
+
+  /* Override Giscus iframe styles if needed */
+  .post2-comments__container .giscus-frame {
+    width: 100%;
+    border: none;
+  }
+
   /* Responsive adjustments */
   @media (max-width: 640px) {
     .post2-container {
@@ -538,6 +611,10 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
     }
 
     .post2-similar__title {
+      font-size: 1.25rem;
+    }
+
+    .post2-comments__title {
       font-size: 1.25rem;
     }
   }
