@@ -7,6 +7,8 @@ import { TextSection,
 import Layout from '../../layouts/Page.astro';
 import HeroSection from '../../components/sections/heros/HeroSection.astro';
 
+const isEnglish = Astro.url.pathname.startsWith('/en');
+
 const seo = {
 	title: '關於我 | AAC Action Now',
 	description: '熱愛AAC的語言治療師，分享AAC知識、評估、治療與資源。',
@@ -28,7 +30,7 @@ const seo = {
 		</div>
     <picture slot="image-container">
       <img
-        src="/assets/images/home/cover.jpg"
+        src="/assets/images/home/hts.PNG"
         alt="AAC Language Therapist"
         id="home-hero-image"
       />
@@ -51,31 +53,18 @@ const seo = {
       讓更多人認識 AAC，並在台灣持續推廣輔助溝通的理念與實踐。
     </p>
 
-    <p>
-    English Version:
-    </p>
-    <p>
-    blablabla
-    </p>
+    <br>
+    <h2>{isEnglish ? 'Contact' : '聯絡資訊'}</h2>
+      <p>
+        {isEnglish ? 'Feel free to contact me via email or social media.' : '歡迎透過電子郵件或社群媒體與我聯繫。'}
+      </p>
+      <div>
+        <p>
+          <em><a href="mailto:Hsiao-Ting_Su@med.unc.edu">Hsiao-Ting_Su (at) med.unc.edu</a></em>
+          • <em><a href="https://www.instagram.com/aacaactionnow/" target="_blank" rel="noopener">Instagram</a></em>
+        </p>
+      </div>
   </TextSection>
 
-	<Container>
-  <TextCardSection>
-  <h1>聯絡資訊</h1>
-    <p>
-      This is a contact form using Odyssey's form components to create a
-      contact form component. The contact form is setup to use Netlify's
-      form detection; however, it can easily be translated to other popular
-      form services such as Formspree, Getform, Formspark, etc.
-    </p>
-    <div>
-      <p>
-        <em><a href="tel:8008675309">(800) 867-5309</a></em> • <em
-          ><a href="mailto:hello@odysseytheme.com">hello@ourcompany.com</a
-          ></em
-        >
-      </p>
-  </TextCardSection>
-  </Container>
 
 </Layout>

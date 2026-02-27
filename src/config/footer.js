@@ -53,15 +53,11 @@ export const footerLists = [
 		],
 	},
 	{
-		title: '資源',
+		title: '相關連結',
 		items: [
 			{
-				title: 'Project Core',
-				slug: 'https://project-core.com/',
-			},
-			{
-				title: 'Talking with Tech Podcast',
-				slug: 'https://www.talkingwithtech.org/',
+				title: '中文AAC FB社團',
+				slug: 'https://www.facebook.com/groups/291665680045560/',
 			},
 			{
 				title: '語言摯聊室 Podcast',

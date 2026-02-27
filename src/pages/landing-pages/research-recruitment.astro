@@ -1,0 +1,154 @@
+---
+import Layout from '../../layouts/Base.astro';
+import Logo from '../../components/Logo.astro';
+
+const seo = {
+	title: '研究招募 | 台灣低口語/無口語孩子家庭共讀研究',
+	description: '邀請3-7歲低口語或無口語孩子的家長參與線上問卷研究，了解台灣家庭的共讀資源與經驗。',
+};
+---
+
+<Layout seo={seo}>
+  <div class="full-page-split__wrapper">
+    <section class="full-page-split__image-section">
+      <div class="full-page-split__logo">
+        <a href="/">
+          <Logo />
+        </a>
+      </div>
+      <picture>
+        <img
+          src="/assets/images/home/research_recruitment.png"
+          alt="研究招募海報"
+          class="full-page-split__image"
+        />
+      </picture>
+    </section>
+    <section class="full-page-split__content-section">
+      <div class="full-page-split__content-container">
+        <h1>研究招募</h1>
+        <p>大家好，我是筱庭，目前在美國北卡羅來納大學教堂山分校（UNC-Chapel Hill）就讀語言治療博士班。我的論文研究想了解<strong>台灣 3–7 歲低口語／無口語孩子家庭的共讀資源與經驗</strong>。</p>
+
+        <h2>邀請對象</h2>
+        <p>3–7 歲低口語或無口語孩子的家長／主要照顧者。</p>
+        <p>「低口語」指孩子主動口語詞彙通常少於 100 個。</p>
+        <ul>
+          <li>無口語也非常歡迎</li>
+          <li>即使目前沒有在共讀，也非常歡迎參與（每個家庭的經驗都很重要）</li>
+        </ul>
+
+        <h2>研究方式</h2>
+        <p>匿名線上問卷，約 15–20 分鐘完成，可隨時停止。</p>
+
+        <h2>完成抽獎</h2>
+        <p>填寫完成可參加抽獎：<strong>10 位／每位 7-11 電子禮品卡 300 元</strong>。</p>
+      </div>
+    </section>
+  </div>
+  <div class="full-width-cta">
+    <div class="cta-section">
+      <a href="https://go.unc.edu/FamilyReadingStudy" target="_blank" rel="noopener noreferrer" class="cta-button">
+        填寫問卷
+      </a>
+    </div>
+    <p class="closing-message">若身邊有符合的家庭，誠摯邀請協助轉發 🙏<br/>也歡迎家長直接與我聯繫。謝謝大家的支持 🧡</p>
+  </div>
+</Layout>
+
+<style>
+.full-page-split__wrapper {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-auto-columns: 1fr;
+  min-height: 100vh;
+}
+.full-page-split__image-section {
+  position: relative;
+}
+.full-page-split__image-section :global(img) {
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;
+  background-color: #f5f5f5;
+}
+.full-page-split__logo {
+  background-color: var(--theme-surface-1);
+  color: (--theme-on-surface-1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--theme-shape-radius);
+  top: 1rem;
+  left: 1rem;
+  position: absolute;
+  z-index: 1;
+}
+.full-page-split__logo a {
+  text-decoration: none;
+}
+.full-page-split__content-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+.full-page-split__content-container {
+  margin: 1rem;
+  padding: 2rem;
+}
+.full-page-split__content-container h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 1rem;
+}
+.full-page-split__content-container h2 {
+  font-size: var(--font-size-lg);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--theme-primary);
+}
+.full-page-split__content-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.full-page-split__content-container li {
+  margin-bottom: 0.25rem;
+}
+.cta-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+.cta-button {
+  display: inline-block;
+  background-color: var(--theme-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--theme-shape-radius);
+  text-decoration: none;
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+  background-color: var(--theme-primary-hover, var(--theme-primary));
+  opacity: 0.9;
+}
+.full-width-cta {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  margin-top: -4rem;
+}
+.closing-message {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+@media(max-width: 768px) {
+  .full-page-split__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30vh auto;
+  }
+  .full-page-split__image-section :global(img) {
+    max-height: 30vh;
+    object-fit: contain;
+  }
+}
+</style>
