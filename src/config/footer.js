@@ -27,11 +27,11 @@ export const footerLists = [
 		items: [
 			{
 				title: '什麼是AAC？',
-				slug: '/landing-pages/landing-1',
+				slug: '/what_is_aac',
 			},
 			{
 				title: '研究招募',
-				slug: 'research-recruitment',
+				slug: '/research-recruitment',
 			},
 		],
 	},
