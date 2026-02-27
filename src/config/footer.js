@@ -27,7 +27,7 @@ export const footerLists = [
 		items: [
 			{
 				title: '什麼是AAC？',
-				slug: '/what_is_aac',
+				slug: '/what-is-aac',
 			},
 			{
 				title: '研究招募',
