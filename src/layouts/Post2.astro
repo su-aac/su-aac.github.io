@@ -125,9 +125,9 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
             const giscusEl = container?.querySelector('.giscus');
             if (!container || !giscusEl) return;
 
-            // Use custom theme in production, fallback to gruvbox_light locally
+            // Use custom theme in production, fallback to light locally
             const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-            const theme = isLocalhost ? 'gruvbox_light' : `${window.location.origin}/giscus-theme.css`;
+            const theme = isLocalhost ? 'light' : `${window.location.origin}/giscus-theme.css`;
 
             // Clear existing content
             giscusEl.innerHTML = '';
