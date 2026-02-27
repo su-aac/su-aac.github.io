@@ -1,0 +1,152 @@
+/*
+ * Custom Giscus Theme - Sand/Warm Orange
+ * Based on website theme colors:
+ * - Primary: #e38a20 (orange)
+ * - Background: #fffffe (white)
+ * - Surface: #ffecd9 (cream)
+ * - Text: #5e4536 (brown)
+ */
+
+main {
+  /* Text colors */
+  --color-fg-default: #5e4536;
+  --color-fg-muted: #7a6354;
+  --color-fg-subtle: #9a8374;
+
+  /* Canvas/Background colors */
+  --color-canvas-default: #fffffe;
+  --color-canvas-overlay: #fffffe;
+  --color-canvas-inset: #faf6f2;
+  --color-canvas-subtle: #ffecd9;
+
+  /* Border colors */
+  --color-border-default: #d4b89a;
+  --color-border-muted: #e8d4c4;
+  --color-border-subtle: rgba(94, 69, 54, 0.1);
+
+  /* Neutral colors */
+  --color-neutral-muted: rgba(94, 69, 54, 0.1);
+  --color-neutral-subtle: rgba(94, 69, 54, 0.05);
+
+  /* Accent/Primary colors */
+  --color-accent-fg: #c47010;
+  --color-accent-emphasis: #e38a20;
+  --color-accent-muted: rgba(227, 138, 32, 0.4);
+  --color-accent-subtle: rgba(227, 138, 32, 0.1);
+
+  /* Success colors */
+  --color-success-fg: #3d7a3d;
+  --color-success-emphasis: #2da44e;
+  --color-success-muted: rgba(45, 164, 78, 0.4);
+  --color-success-subtle: rgba(45, 164, 78, 0.1);
+
+  /* Attention/Warning colors */
+  --color-attention-fg: #e38a20;
+  --color-attention-emphasis: #eb870f;
+  --color-attention-muted: rgba(227, 138, 32, 0.4);
+  --color-attention-subtle: rgba(227, 138, 32, 0.15);
+
+  /* Danger colors */
+  --color-danger-fg: #c44536;
+  --color-danger-emphasis: #cf222e;
+  --color-danger-muted: rgba(207, 34, 46, 0.4);
+  --color-danger-subtle: rgba(207, 34, 46, 0.1);
+
+  /* Button styles */
+  --color-btn-text: #5e4536;
+  --color-btn-bg: #fffffe;
+  --color-btn-border: #d4b89a;
+  --color-btn-shadow: 0 1px 0 rgba(94, 69, 54, 0.04);
+  --color-btn-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --color-btn-hover-bg: #ffecd9;
+  --color-btn-hover-border: #c4a282;
+  --color-btn-active-bg: #ffe0c0;
+  --color-btn-active-border: #c4a282;
+  --color-btn-selected-bg: #ffecd9;
+  --color-btn-focus-bg: #fffffe;
+  --color-btn-focus-border: #e38a20;
+  --color-btn-focus-shadow: 0 0 0 3px rgba(227, 138, 32, 0.3);
+
+  /* Primary button */
+  --color-btn-primary-text: #ffffff;
+  --color-btn-primary-bg: #e38a20;
+  --color-btn-primary-border: #c47010;
+  --color-btn-primary-shadow: 0 1px 0 rgba(94, 69, 54, 0.1);
+  --color-btn-primary-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  --color-btn-primary-hover-bg: #eb870f;
+  --color-btn-primary-hover-border: #c47010;
+  --color-btn-primary-selected-bg: #c47010;
+  --color-btn-primary-selected-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.1);
+  --color-btn-primary-disabled-text: rgba(255, 255, 255, 0.5);
+  --color-btn-primary-disabled-bg: rgba(227, 138, 32, 0.6);
+  --color-btn-primary-disabled-border: rgba(196, 112, 16, 0.4);
+  --color-btn-primary-focus-bg: #e38a20;
+  --color-btn-primary-focus-border: #c47010;
+  --color-btn-primary-focus-shadow: 0 0 0 3px rgba(227, 138, 32, 0.4);
+
+  /* Action list */
+  --color-action-list-item-default-hover-bg: rgba(227, 138, 32, 0.08);
+  --color-action-list-item-default-hover-border: transparent;
+  --color-action-list-item-default-active-bg: rgba(227, 138, 32, 0.12);
+  --color-action-list-item-default-active-border: transparent;
+  --color-action-list-item-default-selected-bg: rgba(227, 138, 32, 0.08);
+
+  /* Segmented control */
+  --color-segmented-control-bg: rgba(94, 69, 54, 0.05);
+  --color-segmented-control-button-bg: #fffffe;
+  --color-segmented-control-button-hover-bg: #ffecd9;
+  --color-segmented-control-button-active-bg: #ffe0c0;
+  --color-segmented-control-button-selected-border: #d4b89a;
+
+  /* Primer specific */
+  --color-primer-fg-disabled: #9a8374;
+  --color-primer-canvas-backdrop: rgba(94, 69, 54, 0.5);
+  --color-primer-canvas-sticky: rgba(255, 255, 254, 0.95);
+  --color-primer-border-active: #e38a20;
+  --color-primer-border-contrast: rgba(94, 69, 54, 0.1);
+  --color-primer-shadow-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --color-primer-shadow-inset: inset 0 1px 0 rgba(94, 69, 54, 0.04);
+  --color-primer-shadow-focus: 0 0 0 3px rgba(227, 138, 32, 0.3);
+
+  /* Scale colors */
+  --color-scale-black: #1c1c1c;
+  --color-scale-white: #fffffe;
+  --color-scale-gray-0: #faf6f2;
+  --color-scale-gray-1: #ffecd9;
+  --color-scale-gray-2: #ffe0c0;
+  --color-scale-gray-3: #e8d4c4;
+  --color-scale-gray-4: #d4b89a;
+  --color-scale-gray-5: #9a8374;
+  --color-scale-gray-6: #7a6354;
+  --color-scale-gray-7: #5e4536;
+  --color-scale-gray-8: #3d2a1f;
+  --color-scale-gray-9: #1c1c1c;
+
+  /* Social reaction colors */
+  --color-social-reaction-bg-hover: #ffecd9;
+  --color-social-reaction-bg-reacted-hover: rgba(227, 138, 32, 0.2);
+}
+
+/* Link styling */
+main a {
+  color: #c47010;
+}
+
+main a:hover {
+  color: #e38a20;
+}
+
+/* Loading image */
+main .gsc-loading-image {
+  background-image: url("https://github.githubassets.com/images/mona-loading-default.gif");
+}
+
+/* Pagination loader */
+main .pagination-loader-container {
+  background-image: url("https://github.com/images/modules/pulls/progressive-disclosure-line.svg");
+}
+
+/* Homepage background */
+.gsc-homepage-bg {
+  background-color: #fffffe;
+}

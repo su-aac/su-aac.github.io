@@ -118,20 +118,42 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
         </h2>
       </div>
       <div class="post2-comments__container">
-        <script src="https://giscus.app/client.js"
-          data-repo="su-aac/su-aac.github.io"
-          data-repo-id="R_kgDORCDuTw"
-          data-category="Blog Comments"
-          data-category-id="DIC_kwDORCDuT84C3WYc"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="0"
-          data-input-position="top"
-          data-theme="gruvbox_light"
-          data-lang="en"
-          crossorigin="anonymous"
-          async>
+        <div class="giscus"></div>
+        <script>
+          function loadGiscus() {
+            const container = document.querySelector('.post2-comments__container');
+            const giscusEl = container?.querySelector('.giscus');
+            if (!container || !giscusEl) return;
+
+            // Use custom theme in production, fallback to gruvbox_light locally
+            const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            const theme = isLocalhost ? 'gruvbox_light' : `${window.location.origin}/giscus-theme.css`;
+
+            // Clear existing content
+            giscusEl.innerHTML = '';
+
+            const script = document.createElement('script');
+            script.src = 'https://giscus.app/client.js';
+            script.setAttribute('data-repo', 'su-aac/su-aac.github.io');
+            script.setAttribute('data-repo-id', 'R_kgDORCDuTw');
+            script.setAttribute('data-category', 'Blog Comments');
+            script.setAttribute('data-category-id', 'DIC_kwDORCDuT84C3WYc');
+            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-strict', '0');
+            script.setAttribute('data-reactions-enabled', '1');
+            script.setAttribute('data-emit-metadata', '0');
+            script.setAttribute('data-input-position', 'top');
+            script.setAttribute('data-theme', theme);
+            script.setAttribute('data-lang', 'en');
+            script.setAttribute('crossorigin', 'anonymous');
+            script.async = true;
+
+            giscusEl.appendChild(script);
+          }
+
+          // Load on initial page load and on View Transitions navigation
+          loadGiscus();
+          document.addEventListener('astro:page-load', loadGiscus);
         </script>
       </div>
     </section>
