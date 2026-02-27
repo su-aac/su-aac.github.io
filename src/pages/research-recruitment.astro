@@ -1,6 +1,9 @@
 ---
-import Layout from '../../layouts/Base.astro';
-import Logo from '../../components/Logo.astro';
+import Layout from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import { Footer } from '@components/odyssey-theme';
+import settings from '../config/settings';
+import { footerLists, footerSocials } from '../config/footer';
 
 const seo = {
 	title: '研究招募 | 台灣低口語/無口語孩子家庭共讀研究',
@@ -53,6 +56,17 @@ const seo = {
     </div>
     <p class="closing-message">若身邊有符合的家庭，誠摯邀請協助轉發 🙏<br/>也歡迎家長直接與我聯繫。謝謝大家的支持 🧡</p>
   </div>
+  <Footer
+    slot="footer"
+    background="var(--theme-surface-1)"
+    color="var(--theme-on-surface-1)"
+    footerLists={footerLists}
+    footerSocials={footerSocials}
+    copyrightName={settings.name}
+    showPlug={settings.showPlug}
+  >
+    <Logo slot="logo" />
+  </Footer>
 </Layout>
 
 <style>
