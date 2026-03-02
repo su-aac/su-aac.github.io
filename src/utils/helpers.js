@@ -4,7 +4,7 @@ export function generateSlug(string) {
 		.trim()
 		.toLowerCase()
 		.replace(/\s+/g, '-')
-		.replace(/[^\w\-]+/g, '')
+		.replace(/[^\p{L}\p{N}\-]+/gu, '')  // Keep Unicode letters and numbers
 		.replace(/\-\-+/g, '-')
 		.replace(/^-+/, '')
 		.replace(/-+$/, '');
