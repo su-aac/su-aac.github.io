@@ -23,10 +23,10 @@ export const footerSocials = [
 
 export const footerLists = [
 	{
-		title: 'Landing Pages',
+		title: '認識 AAC',
 		items: [
 			{
-				title: '什麼是AAC？',
+				title: 'AAC是什麼？',
 				slug: '/what-is-aac',
 			},
 			{
@@ -39,15 +39,15 @@ export const footerLists = [
 		title: '關於我',
 		items: [
 			{
-				title: 'About',
+				title: '自我介紹',
 				slug: '/about',
 			},
 			{
-				title: 'Blog',
+				title: '部落格',
 				slug: '/blog',
 			},
 			{
-				title: 'CV',
+				title: '履歷',
 				slug: '/cv',
 			},
 		],

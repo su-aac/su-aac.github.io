@@ -16,3 +16,22 @@ export const nav = [
 		slug: '/cv',
 	},
 ];
+
+export const navZh = [
+	{
+		title: '首頁',
+		slug: '/',
+	},
+	{
+		title: '部落格',
+		slug: '/blog',
+	},
+	{
+		title: '關於我',
+		slug: '/about',
+	},
+	{
+		title: '履歷',
+		slug: '/cv',
+	},
+];

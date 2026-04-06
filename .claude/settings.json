@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -L \"https://aacaactionnow.wixsite.com/mysite/post/aac-%E6%A0%B8%E5%BF%83%E8%A9%9E%E5%BD%99\")",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(curl -L -o /Users/morris/Desktop/hsiao/website/public/assets/images/aac-core-vocabulary/aac-core-vocabulary.webp \"https://static.wixstatic.com/media/b72ced_dfcfd8b61b5645ffb6e9c09b9971a071~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,enc_auto/b72ced_dfcfd8b61b5645ffb6e9c09b9971a071~mv2.webp\")",
+      "Bash(curl -L -o /Users/morris/Desktop/hsiao/website/public/assets/images/aac-core-vocabulary/aac-core-vocabulary-1.webp \"https://static.wixstatic.com/media/b72ced_0ab63e6b5ecb4a71a43f16b5ea50309f~mv2.png/v1/fill/w_1000,h_540,al_c,q_90,enc_auto/b72ced_0ab63e6b5ecb4a71a43f16b5ea50309f~mv2.webp\")",
+      "Bash(curl -L -H \"Accept: image/webp\" -o /Users/morris/Desktop/hsiao/website/public/assets/images/aac-core-vocabulary/aac-core-vocabulary.webp \"https://static.wixstatic.com/media/b72ced_dfcfd8b61b5645ffb6e9c09b9971a071~mv2.png/v1/fill/w_1000,h_1000,al_c,q_90,enc_avif,quality_auto/b72ced_dfcfd8b61b5645ffb6e9c09b9971a071~mv2.png\")",
+      "Bash(curl -L -H \"Accept: image/webp\" -o /Users/morris/Desktop/hsiao/website/public/assets/images/aac-core-vocabulary/aac-core-vocabulary-1.webp \"https://static.wixstatic.com/media/b72ced_0ab63e6b5ecb4a71a43f16b5ea50309f~mv2.png/v1/fill/w_1000,h_540,al_c,q_90,enc_avif,quality_auto/b72ced_0ab63e6b5ecb4a71a43f16b5ea50309f~mv2.png\")",
+      "Bash(curl -s -L -o /tmp/aac-page.html \"https://aacaactionnow.wixsite.com/mysite/post/aac%E6%BA%9D%E9%80%9A%E8%BC%94%E5%85%B7%E9%A0%81%E9%9D%A2%E8%A8%AD%E8%A8%88\")",
+      "WebFetch(domain:aacaactionnow.wixsite.com)",
+      "Bash(python3)",
+      "Bash(curl -s -L -o /Users/morris/Desktop/hsiao/website/public/assets/images/aac-page-design/aac-page-design.webp \"https://i.ytimg.com/vi/dNrQ3qC1p1w/maxresdefault.jpg\")"
+    ]
+  }
+}

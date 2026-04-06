@@ -11,7 +11,7 @@ export interface Props {
 	seo?: BaseHeadProps;
 }
 
-import { nav } from '../config/nav.js';
+import { nav, navZh } from '../config/nav.js';
 
 const { seo } = Astro.props as Props;
 
@@ -22,10 +22,11 @@ const switchUrl = isEnglish
   ? currentPath.replace('/en', '') || '/'
   : `/en${currentPath}`;
 const switchLabel = isEnglish ? '中文' : 'English';
+const currentNav = isEnglish ? nav : navZh;
 ---
 
 <Layout seo={seo}>
-	<Header rightMenu navData={nav} slot="header">
+	<Header rightMenu navData={currentNav} slot="header">
 		<span slot="logo">
 			<Logo />
 		</span>

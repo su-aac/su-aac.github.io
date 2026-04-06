@@ -62,16 +62,16 @@ const formatDate = (dateStr: string) => {
   <div class="tag-page-container">
     <header class="tag-page-header">
       <h1 class="tag-page-title">
-        <span class="tag-page-label">Posts tagged</span>
-        "{tag}"
+        <span class="tag-page-label">標籤：</span>
+        「{tag}」
       </h1>
-      <p class="tag-page-count">{posts.length} {posts.length === 1 ? 'article' : 'articles'}</p>
+      <p class="tag-page-count">{posts.length} 篇文章</p>
 
       <!-- Navigation -->
       <nav class="tag-page-nav">
-        <a href="/blog/categories" class="tag-page-nav__link">Categories</a>
-        <a href="/blog/tags" class="tag-page-nav__link tag-page-nav__link--active">Tags</a>
-        <a href="/blog/authors" class="tag-page-nav__link">Authors</a>
+        <a href="/blog/categories" class="tag-page-nav__link">分類</a>
+        <a href="/blog/tags" class="tag-page-nav__link tag-page-nav__link--active">標籤</a>
+        <a href="/blog/authors" class="tag-page-nav__link">作者</a>
       </nav>
     </header>
 
@@ -81,7 +81,7 @@ const formatDate = (dateStr: string) => {
       {posts.map((post: any) => (
         <article class="tag-post-card">
           {post.frontmatter.featuredImage && (
-            <a href={post.url} class="tag-post-card__image-link">
+            <a href={post.frontmatter.url || post.url} class="tag-post-card__image-link">
               <img
                 src={post.frontmatter.featuredImage}
                 alt={post.frontmatter.title}
@@ -92,23 +92,23 @@ const formatDate = (dateStr: string) => {
           <div class="tag-post-card__content">
             <span class="tag-post-card__date">{formatDate(post.frontmatter.publishDate)}</span>
             <h2 class="tag-post-card__title">
-              <a href={post.url}>{post.frontmatter.title}</a>
+              <a href={post.frontmatter.url || post.url}>{post.frontmatter.title}</a>
             </h2>
             {post.frontmatter.excerpt && (
               <p class="tag-post-card__excerpt">{post.frontmatter.excerpt}</p>
             )}
-            <a href={post.url} class="tag-post-card__read-more">Read More →</a>
+            <a href={post.frontmatter.url || post.url} class="tag-post-card__read-more">閱讀更多 →</a>
           </div>
         </article>
       ))}
     </section>
 
     {posts.length === 0 && (
-      <p class="tag-page-empty">No articles found with this tag.</p>
+      <p class="tag-page-empty">此標籤尚無文章。</p>
     )}
 
     <div class="tag-page-back">
-      <a href="/blog" class="tag-page-back__link">← Back to Blog</a>
+      <a href="/blog" class="tag-page-back__link">← 返回部落格</a>
     </div>
   </div>
 </Layout>

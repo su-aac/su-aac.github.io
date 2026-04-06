@@ -14,7 +14,7 @@ const posts = await Astro.glob('./posts/*.mdx').then(posts =>
       featuredImage: frontmatter.featuredImage,
       excerpt: frontmatter.excerpt,
       tags: frontmatter.tags || [],
-      href: url,
+      href: frontmatter.url || url,
     }))
     .sort((a, b) => {
       if (isBefore(a.parsedDate, b.parsedDate)) return 1;
@@ -46,14 +46,14 @@ const formatDate = (dateStr: string) => {
   <div class="blog2-container">
     <!-- Header -->
     <header class="blog2-header">
-      <h1 class="blog2-title">Blog</h1>
-      <p class="blog2-subtitle">Articles about AAC and communication resources</p>
+      <h1 class="blog2-title">部落格</h1>
+      <p class="blog2-subtitle">AAC 與溝通資源相關文章</p>
 
       <!-- Navigation -->
       <nav class="blog2-nav">
-        <a href="/blog/categories" class="blog2-nav__link">Categories</a>
-        <a href="/blog/tags" class="blog2-nav__link">Tags</a>
-        <a href="/blog/authors" class="blog2-nav__link">Authors</a>
+        <a href="/blog/categories" class="blog2-nav__link">分類</a>
+        <a href="/blog/tags" class="blog2-nav__link">標籤</a>
+        <a href="/blog/authors" class="blog2-nav__link">作者</a>
       </nav>
     </header>
 
@@ -90,7 +90,7 @@ const formatDate = (dateStr: string) => {
                 ))}
               </div>
             )}
-            <a href={post.href} class="post-card__read-more">Read More →</a>
+            <a href={post.href} class="post-card__read-more">閱讀更多 →</a>
           </div>
         </article>
       ))}

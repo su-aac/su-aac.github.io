@@ -55,16 +55,16 @@ const formatDate = (dateStr: string) => {
   <div class="category-page-container">
     <header class="category-page-header">
       <h1 class="category-page-title">
-        <span class="category-page-label">Category:</span>
+        <span class="category-page-label">分類：</span>
         {category}
       </h1>
-      <p class="category-page-count">{posts.length} {posts.length === 1 ? 'article' : 'articles'}</p>
+      <p class="category-page-count">{posts.length} 篇文章</p>
 
       <!-- Navigation -->
       <nav class="category-page-nav">
-        <a href="/blog/categories" class="category-page-nav__link category-page-nav__link--active">Categories</a>
-        <a href="/blog/tags" class="category-page-nav__link">Tags</a>
-        <a href="/blog/authors" class="category-page-nav__link">Authors</a>
+        <a href="/blog/categories" class="category-page-nav__link category-page-nav__link--active">分類</a>
+        <a href="/blog/tags" class="category-page-nav__link">標籤</a>
+        <a href="/blog/authors" class="category-page-nav__link">作者</a>
       </nav>
     </header>
 
@@ -74,7 +74,7 @@ const formatDate = (dateStr: string) => {
       {posts.map((post: any) => (
         <article class="category-post-card">
           {post.frontmatter.featuredImage && (
-            <a href={post.url} class="category-post-card__image-link">
+            <a href={post.frontmatter.url || post.url} class="category-post-card__image-link">
               <img
                 src={post.frontmatter.featuredImage}
                 alt={post.frontmatter.title}
@@ -85,23 +85,23 @@ const formatDate = (dateStr: string) => {
           <div class="category-post-card__content">
             <span class="category-post-card__date">{formatDate(post.frontmatter.publishDate)}</span>
             <h2 class="category-post-card__title">
-              <a href={post.url}>{post.frontmatter.title}</a>
+              <a href={post.frontmatter.url || post.url}>{post.frontmatter.title}</a>
             </h2>
             {post.frontmatter.excerpt && (
               <p class="category-post-card__excerpt">{post.frontmatter.excerpt}</p>
             )}
-            <a href={post.url} class="category-post-card__read-more">Read More →</a>
+            <a href={post.frontmatter.url || post.url} class="category-post-card__read-more">閱讀更多 →</a>
           </div>
         </article>
       ))}
     </section>
 
     {posts.length === 0 && (
-      <p class="category-page-empty">No articles found in this category.</p>
+      <p class="category-page-empty">此分類尚無文章。</p>
     )}
 
     <div class="category-page-back">
-      <a href="/blog" class="category-page-back__link">← Back to Blog</a>
+      <a href="/blog" class="category-page-back__link">← 返回部落格</a>
     </div>
   </div>
 </Layout>
