@@ -4,7 +4,7 @@ import Layout from './Base.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Logo from '../components/Logo.astro';
 import settings from '../config/settings';
-import { footerLists, footerSocials } from '../config/footer';
+import { footerLists, footerListsEn, footerSocials } from '../config/footer';
 
 
 export interface Props {
@@ -39,7 +39,7 @@ const currentNav = isEnglish ? nav : navZh;
 		slot="footer"
 		background="var(--theme-surface-1)"
 		color="var(--theme-on-surface-1)"
-		footerLists={footerLists}
+		footerLists={isEnglish ? footerListsEn : footerLists}
     footerSocials={footerSocials}
 		copyrightName={settings.name}
     showPlug={settings.showPlug}

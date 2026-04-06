@@ -1,0 +1,187 @@
+---
+import { Icon } from 'astro-icon/components';
+import {
+	AnnouncementBar,
+	Button,
+	CustomerQuoteSection,
+	ThreeColumnTextSection,
+	YouTubeEmbedSection,
+	StickyTextImageSection,
+	CtaCardSection,
+} from '@components/odyssey-theme';
+import Layout from '../../layouts/Page.astro';
+import TextAndImageHero from '../../components/sections/heros/TextAndImageHero.astro';
+
+const seo = {
+	title: 'What is AAC? | Start AAC Today',
+	description:
+		'An introduction to AAC (Augmentative and Alternative Communication) — what it is, who needs it, and why it matters. Everyone deserves a voice!',
+};
+---
+
+<AnnouncementBar
+	text="About AAC: What is Augmentative and Alternative Communication?"
+	href="/en/blog"
+	slot="announcement-bar"
+/>
+
+<Layout {seo}>
+	<TextAndImageHero reversed>
+		<div slot="text-container">
+			<h1>What is AAC?</h1>
+			<p>
+				AAC stands for Augmentative and Alternative Communication. It refers to any form of communication other than verbal speech.
+				<br />
+				<br />
+				AAC can "augment" existing speech or serve as an "alternative" when speech is not possible.
+			</p>
+		</div>
+
+		<div slot="btns-container">
+			<Button href="/en/blog" customIcon>
+				Read More Articles
+				<Fragment slot="icon">
+					<Icon name="ic:baseline-chevron-right" />
+				</Fragment>
+			</Button>
+			<Button href="/en/blog/categories/aac-resources/" outlined customIcon>
+				AAC Resources
+				<Fragment slot="icon">
+					<Icon name="ic:baseline-chevron-right" />
+				</Fragment>
+			</Button>
+		</div>
+
+		<picture slot="image-container">
+			<img
+				src="/assets/images/home/whatisaac.webp"
+				alt="What is AAC (Augmentative and Alternative Communication)"
+				id="home-hero-image"
+			/>
+		</picture>
+	</TextAndImageHero>
+
+	<CustomerQuoteSection
+		quoteText="Everyone deserves a voice! Not being able to speak does not mean having nothing to say."
+		customerName="Start AAC Today"
+	/>
+
+	<ThreeColumnTextSection>
+		<div slot="column-1-body">
+			<h2>You've Already Used AAC</h2>
+			<p>
+				Remember when you lost your voice from a bad cold? You grabbed a pen and paper to write what you wanted to say — that's a form of "low-tech AAC."
+				Even when traveling abroad and you don't speak the language, using gestures to get by? That's AAC too.
+				<br />
+				<br />
+				We've all needed AAC at some point.
+			</p>
+		</div>
+		<Button slot="column-1-cta" href="/en/blog">
+			Learn More
+		</Button>
+
+		<div slot="column-2-body">
+			<h2>Three Types of AAC</h2>
+			<p>
+				Pointing to what you want (no-tech AAC)
+				<br />
+				Pointing to pictures or words (low-tech AAC)
+				<br />
+				Using a phone or tablet to type (high-tech AAC)
+				<br />
+				<br />
+				From simplest to most advanced, AAC is about making sure your message is heard.
+			</p>
+		</div>
+		<Button slot="column-2-cta" outlined href="/en/blog/categories/aac-resources/">
+			View Resources
+		</Button>
+
+		<div slot="column-3-body">
+			<h2>Who Might Need AAC?</h2>
+			<p>
+				Some people need it temporarily; others need it long-term or for life.
+				Approximately 1.3% of the population cannot be heard or understood through speech alone.
+				<br />
+				<br />
+				Common groups include: cerebral palsy, autism, severe intellectual disability, apraxia of speech, ALS, multiple sclerosis, stroke-related aphasia, traumatic brain injury, and more.
+			</p>
+		</div>
+		<Button slot="column-3-cta" href="/en/blog/categories/aac-assessment-&-therapy/">
+			Assessment & Therapy
+		</Button>
+	</ThreeColumnTextSection>
+
+	<YouTubeEmbedSection
+		url="https://youtu.be/-qOoui3fEpw?si=cEbP37rYDJWrbw_L"
+		rounded
+	/>
+
+	<StickyTextImageSection>
+		<div slot="text-container">
+			<h2>Why Is AAC So Important?</h2>
+
+			<h3>Communication Is How We Exist</h3>
+			<p>
+				We spend most of our day communicating. Communication isn't just talking — it's saying "I love you," saying "thank you," sharing funny stories,
+				and telling others "who I am and what I've been through."
+				<br />
+				Imagine having so much to say, but no one can hear you. How would that feel?
+			</p>
+
+			<h3>Everyone Deserves the Right to Express Themselves</h3>
+			<p>
+				A person with cerebral palsy, after learning to use AAC, used it to tell his family he was being abused by his caregiver.
+				Without AAC, would he have suffered in silence for the rest of his life?
+				<br />
+				A young boy with a tracheostomy used AAC to tell his mom: the cat peed on the bed!
+			</p>
+
+			<h3>Communication and Respect: Truly "Speaking to Them"</h3>
+			<p>
+				An AAC user shared: when visiting the doctor, the doctor always spoke to his mom, as if he didn't exist.
+				It wasn't until he used AAC to describe his health concerns that the doctor, surprised, turned to him and started actually "speaking to him."
+				In that moment, he was a person with thoughts and opinions.
+			</p>
+
+			<h3>Communication Defines Who I Am</h3>
+			<p>
+				Another AAC user said: "When I communicate with AAC, people see the 'real me,' not just the person sitting in a wheelchair."
+				<br />
+				<br />
+				Silence was never golden — we all need to connect and communicate with others. Communication is a fundamental human need and a basic human right.
+				(Bob Williams, 2000, p.248)
+			</p>
+
+			<p style="margin-top: 1.25rem; opacity: 0.9;">
+				<b>References:</b>
+				<br />
+				Beukelman, D. R., & Mirenda, P. (2013). <i>Augmentative and Alternative Communication:
+				Supporting Children and Adults with Complex Communication Needs</i> (4th ed.). Brookes Publishing.
+			</p>
+		</div>
+
+		<picture slot="image-container">
+			<img
+				src="/assets/images/what-is-aac/landing-sticky.jpg"
+				alt="AAC Communication and Respect"
+				loading="lazy"
+			/>
+		</picture>
+	</StickyTextImageSection>
+
+	<CtaCardSection background="var(--theme-surface-2)" color="var(--theme-on-surface-2)">
+		<h2>#StartAACToday</h2>
+		<p>
+			Explore more: AAC Assessment & Therapy, AAC Activities, AAC Resources (core vocabulary, app recommendations, page design).
+			Let's make "everyone deserves a voice" an everyday reality.
+		</p>
+		<Button href="/en/blog" customIcon>
+			Go to AAC Blog
+			<Fragment slot="icon">
+				<Icon name="ic:baseline-chevron-right" />
+			</Fragment>
+		</Button>
+	</CtaCardSection>
+</Layout>

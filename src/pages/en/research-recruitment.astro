@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Base.astro';
+import Logo from '../../components/Logo.astro';
+import { Footer } from '@components/odyssey-theme';
+import settings from '../../config/settings';
+import { footerListsEn, footerSocials } from '../../config/footer';
+
+const seo = {
+	title: 'Research Recruitment | Shared Reading Study for Minimally Verbal Children in Taiwan',
+	description: 'Inviting parents of minimally verbal or non-verbal children ages 3-7 to participate in an online survey about family shared reading resources and experiences.',
+};
+---
+
+<Layout seo={seo}>
+  <div class="full-page-split__wrapper">
+    <section class="full-page-split__image-section">
+      <div class="full-page-split__logo">
+        <a href="/en">
+          <Logo />
+        </a>
+      </div>
+      <picture>
+        <img
+          src="/assets/images/home/research_recruitment.png"
+          alt="Research recruitment poster"
+          class="full-page-split__image"
+        />
+      </picture>
+    </section>
+    <section class="full-page-split__content-section">
+      <div class="full-page-split__content-container">
+        <h1>Research Recruitment</h1>
+        <p>Hello! I'm Hsiao-Ting, currently a doctoral student in Speech-Language Pathology at the University of North Carolina at Chapel Hill (UNC-Chapel Hill). My dissertation research aims to understand <strong>the shared reading resources and experiences of families with minimally verbal or non-verbal children ages 3–7 in Taiwan</strong>.</p>
+
+        <h2>Who Can Participate?</h2>
+        <p>Parents or primary caregivers of minimally verbal or non-verbal children ages 3–7.</p>
+        <p>"Minimally verbal" means the child typically produces fewer than 100 spoken words independently.</p>
+        <ul>
+          <li>Non-verbal children are also very welcome</li>
+          <li>Even if you are not currently reading with your child, you are very welcome to participate (every family's experience matters)</li>
+        </ul>
+
+        <h2>How?</h2>
+        <p>An anonymous online survey, taking approximately 15–20 minutes to complete. You may stop at any time.</p>
+
+        <h2>Incentive</h2>
+        <p>All participants who complete the survey are entered into a drawing: <strong>10 winners / each receives a 7-Eleven e-gift card worth NT$300</strong>.</p>
+      </div>
+    </section>
+  </div>
+  <div class="full-width-cta">
+    <div class="cta-section">
+      <a href="https://go.unc.edu/FamilyReadingStudy" target="_blank" rel="noopener noreferrer" class="cta-button">
+        Take the Survey
+      </a>
+    </div>
+    <p class="closing-message">If you know families who may qualify, we sincerely invite you to share this information.<br/>Parents are also welcome to contact me directly. Thank you for your support!</p>
+  </div>
+  <Footer
+    slot="footer"
+    background="var(--theme-surface-1)"
+    color="var(--theme-on-surface-1)"
+    footerLists={footerListsEn}
+    footerSocials={footerSocials}
+    copyrightName={settings.name}
+    showPlug={settings.showPlug}
+  >
+    <Logo slot="logo" />
+  </Footer>
+</Layout>
+
+<style>
+.full-page-split__wrapper {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  grid-auto-columns: 1fr;
+  min-height: 100vh;
+}
+.full-page-split__image-section {
+  position: relative;
+}
+.full-page-split__image-section :global(img) {
+  width: 100%;
+  height: 100vh;
+  object-fit: contain;
+  background-color: #f5f5f5;
+}
+.full-page-split__logo {
+  background-color: var(--theme-surface-1);
+  color: (--theme-on-surface-1);
+  padding: 0.5rem 1rem;
+  border-radius: var(--theme-shape-radius);
+  top: 1rem;
+  left: 1rem;
+  position: absolute;
+  z-index: 1;
+}
+.full-page-split__logo a {
+  text-decoration: none;
+}
+.full-page-split__content-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+.full-page-split__content-container {
+  margin: 1rem;
+  padding: 2rem;
+}
+.full-page-split__content-container h1 {
+  font-size: var(--font-size-xl);
+  margin-bottom: 1rem;
+}
+.full-page-split__content-container h2 {
+  font-size: var(--font-size-lg);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--theme-primary);
+}
+.full-page-split__content-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+.full-page-split__content-container li {
+  margin-bottom: 0.25rem;
+}
+.cta-section {
+  margin: 2rem 0;
+  text-align: center;
+}
+.cta-button {
+  display: inline-block;
+  background-color: var(--theme-primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: var(--theme-shape-radius);
+  text-decoration: none;
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+  background-color: var(--theme-primary-hover, var(--theme-primary));
+  opacity: 0.9;
+}
+.full-width-cta {
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  margin-top: -4rem;
+}
+.closing-message {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+@media(max-width: 768px) {
+  .full-page-split__wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 30vh auto;
+  }
+  .full-page-split__image-section :global(img) {
+    max-height: 30vh;
+    object-fit: contain;
+  }
+}
+</style>

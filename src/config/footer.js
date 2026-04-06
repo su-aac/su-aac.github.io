@@ -66,3 +66,49 @@ export const footerLists = [
 		],
 	},
 ];
+
+export const footerListsEn = [
+	{
+		title: 'Learn About AAC',
+		items: [
+			{
+				title: 'What is AAC?',
+				slug: '/en/what-is-aac',
+			},
+			{
+				title: 'Research Recruitment',
+				slug: '/en/research-recruitment',
+			},
+		],
+	},
+	{
+		title: 'About Me',
+		items: [
+			{
+				title: 'About',
+				slug: '/en/about',
+			},
+			{
+				title: 'Blog',
+				slug: '/en/blog',
+			},
+			{
+				title: 'CV',
+				slug: '/en/cv',
+			},
+		],
+	},
+	{
+		title: 'Related Links',
+		items: [
+			{
+				title: 'Chinese AAC FB Group',
+				slug: 'https://www.facebook.com/groups/291665680045560/',
+			},
+			{
+				title: 'Podcast',
+				slug: 'https://open.spotify.com/show/6BzuKxzKWhiR0w0635KTEF',
+			}
+		],
+	},
+];
