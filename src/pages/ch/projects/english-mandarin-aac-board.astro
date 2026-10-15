@@ -1,0 +1,40 @@
+---
+import { TextSection } from '@components/odyssey-theme';
+import Layout from '../../../layouts/Page.astro';
+
+const seo = {
+  title: 'English-Mandarin AAC Board | OS-DPI',
+  description: 'Core word board demonstration with a dynamic display that toggles between Mandarin and English. Any languages can be simulated by editing the data.',
+};
+---
+
+<Layout seo={seo}>
+  <TextSection narrow>
+    <h1>English-Mandarin AAC Board</h1>
+
+    <p>The intent of this <a href="https://unc-project-open-aac.github.io/OS-DPI/?fetch=https://github.com/user-attachments/files/25000325/English_Mandarin_grid.zip">demonstration UI</a> is to simulate a dynamic display of a core word board that can toggle between Mandarin and English. Although Mandarin and English were selected for this demo, any languages can be simulated using the same design by simply editing the data to reflect desired languages. You can download the file here: <a href="https://github.com/user-attachments/files/25000325/English_Mandarin_grid.zip">English_Mandarin_grid.zip</a></p>
+
+    <p><strong>Note:</strong> In the demo, you can switch between the developer mode and full-screen user-interface pressing the <kbd>Alt</kbd> or <kbd>Option</kbd> key followed by the <kbd>D</kbd> key.</p>
+
+    <p>Step-by-step <a href="https://github.com/UNC-Project-Open-AAC/OS-DPI/wiki/Maker-Day-at-ATIA-2026#destination--english-mandarin-core-board">directions</a> are available to build this demonstration UI.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li>Core words</li>
+      <li><a href="https://github.com/UNC-Project-Open-AAC/OS-DPI/wiki/Grid">Grid</a> design</li>
+      <li>Message window in the <a href="https://github.com/UNC-Project-Open-AAC/OS-DPI/wiki/Display">display</a></li>
+      <li>Fully customizable (colors, fonts, symbols, etc.)</li>
+      <li>Data is managed in a <a href="https://github.com/UNC-Project-Open-AAC/OS-DPI/wiki/Using-Spreadsheets">spreadsheet</a></li>
+      <li>Translation using the <a href="https://github.com/UNC-Project-Open-AAC/OS-DPI/discussions/240">Google Translate function</a></li>
+    </ul>
+
+    <h2>Interactive Demo</h2>
+    <iframe
+      src="https://unc-project-open-aac.github.io/OS-DPI/?fetch=https://github.com/user-attachments/files/25000325/English_Mandarin_grid.zip"
+      width="100%"
+      height="600"
+      style="border: 1px solid #ccc; border-radius: 8px;"
+      title="Interactive Demo"
+    ></iframe>
+  </TextSection>
+</Layout>
