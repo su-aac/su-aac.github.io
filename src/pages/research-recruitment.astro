@@ -3,11 +3,11 @@ import Layout from '../layouts/Base.astro';
 import Logo from '../components/Logo.astro';
 import { Footer } from '@components/odyssey-theme';
 import settings from '../config/settings';
-import { footerLists, footerSocials } from '../config/footer';
+import { footerListsEn, footerSocials } from '../config/footer';
 
 const seo = {
-	title: '研究招募 | 台灣低口語/無口語孩子家庭共讀研究',
-	description: '邀請3-7歲低口語或無口語孩子的家長參與線上問卷研究，了解台灣家庭的共讀資源與經驗。',
+	title: 'Research Recruitment | Shared Reading Study for Minimally Verbal Children in Taiwan',
+	description: 'Inviting parents of minimally verbal or non-verbal children ages 3-7 to participate in an online survey about family shared reading resources and experiences.',
 };
 ---
 
@@ -22,45 +22,45 @@ const seo = {
       <picture>
         <img
           src="/assets/images/home/research_recruitment.png"
-          alt="研究招募海報"
+          alt="Research recruitment poster"
           class="full-page-split__image"
         />
       </picture>
     </section>
     <section class="full-page-split__content-section">
       <div class="full-page-split__content-container">
-        <h1>研究招募</h1>
-        <p>大家好，我是筱庭，目前在美國北卡羅來納大學教堂山分校（UNC-Chapel Hill）就讀語言治療博士班。我的論文研究想了解<strong>台灣 3–7 歲低口語／無口語孩子家庭的共讀資源與經驗</strong>。</p>
+        <h1>Research Recruitment</h1>
+        <p>Hello! I'm Hsiao-Ting, currently a doctoral student in Speech-Language Pathology at the University of North Carolina at Chapel Hill (UNC-Chapel Hill). My dissertation research aims to understand <strong>the shared reading resources and experiences of families with minimally verbal or non-verbal children ages 3–7 in Taiwan</strong>.</p>
 
-        <h2>邀請對象</h2>
-        <p>3–7 歲低口語或無口語孩子的家長／主要照顧者。</p>
-        <p>「低口語」指孩子主動口語詞彙通常少於 100 個。</p>
+        <h2>Who Can Participate?</h2>
+        <p>Parents or primary caregivers of minimally verbal or non-verbal children ages 3–7.</p>
+        <p>"Minimally verbal" means the child typically produces fewer than 100 spoken words independently.</p>
         <ul>
-          <li>無口語也非常歡迎</li>
-          <li>即使目前沒有在共讀，也非常歡迎參與（每個家庭的經驗都很重要）</li>
+          <li>Non-verbal children are also very welcome</li>
+          <li>Even if you are not currently reading with your child, you are very welcome to participate (every family's experience matters)</li>
         </ul>
 
-        <h2>研究方式</h2>
-        <p>匿名線上問卷，約 15–20 分鐘完成，可隨時停止。</p>
+        <h2>How?</h2>
+        <p>An anonymous online survey, taking approximately 15–20 minutes to complete. You may stop at any time.</p>
 
-        <h2>完成抽獎</h2>
-        <p>填寫完成可參加抽獎：<strong>10 位／每位 7-11 電子禮品卡 300 元</strong>。</p>
+        <h2>Incentive</h2>
+        <p>All participants who complete the survey are entered into a drawing: <strong>10 winners / each receives a 7-Eleven e-gift card worth NT$300</strong>.</p>
       </div>
     </section>
   </div>
   <div class="full-width-cta">
     <div class="cta-section">
       <a href="https://go.unc.edu/FamilyReadingStudy" target="_blank" rel="noopener noreferrer" class="cta-button">
-        填寫問卷
+        Take the Survey
       </a>
     </div>
-    <p class="closing-message">若身邊有符合的家庭，誠摯邀請協助轉發 🙏<br/>也歡迎家長直接與我聯繫。謝謝大家的支持 🧡</p>
+    <p class="closing-message">If you know families who may qualify, we sincerely invite you to share this information.<br/>Parents are also welcome to contact me directly. Thank you for your support!</p>
   </div>
   <Footer
     slot="footer"
     background="var(--theme-surface-1)"
     color="var(--theme-on-surface-1)"
-    footerLists={footerLists}
+    footerLists={footerListsEn}
     footerSocials={footerSocials}
     copyrightName={settings.name}
     showPlug={settings.showPlug}

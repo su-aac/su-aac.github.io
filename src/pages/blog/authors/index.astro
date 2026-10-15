@@ -30,14 +30,14 @@ const seo = {
 <Layout seo={seo}>
   <div class="authors-container">
     <header class="authors-header">
-      <h1 class="authors-title">所有作者</h1>
-      <p class="authors-subtitle">依作者瀏覽文章</p>
+      <h1 class="authors-title">All Authors</h1>
+      <p class="authors-subtitle">Browse articles by author</p>
 
       <!-- Navigation -->
       <nav class="authors-nav">
-        <a href="/blog/categories" class="authors-nav__link">分類</a>
-        <a href="/blog/tags" class="authors-nav__link">標籤</a>
-        <a href="/blog/authors" class="authors-nav__link authors-nav__link--active">作者</a>
+        <a href="/blog/categories" class="authors-nav__link">Categories</a>
+        <a href="/blog/tags" class="authors-nav__link">Tags</a>
+        <a href="/blog/authors" class="authors-nav__link authors-nav__link--active">Authors</a>
       </nav>
     </header>
 
@@ -50,17 +50,17 @@ const seo = {
             {author.name.charAt(0).toUpperCase()}
           </div>
           <span class="author-card__name">{author.name}</span>
-          <span class="author-card__count">{author.count} 篇文章</span>
+          <span class="author-card__count">{author.count} {author.count === 1 ? 'article' : 'articles'}</span>
         </a>
       ))}
     </section>
 
     {allAuthorsData.length === 0 && (
-      <p class="authors-empty">尚無作者。</p>
+      <p class="authors-empty">No authors found.</p>
     )}
 
     <div class="authors-back">
-      <a href="/blog" class="authors-back__link">← 返回部落格</a>
+      <a href="/blog" class="authors-back__link">&larr; Back to Blog</a>
     </div>
   </div>
 </Layout>
@@ -92,7 +92,6 @@ const seo = {
     margin-bottom: 1.25rem;
   }
 
-  /* Navigation */
   .authors-nav {
     display: flex;
     justify-content: center;

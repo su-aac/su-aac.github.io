@@ -9,7 +9,7 @@ export interface Props {
 }
 
 const { seo } = Astro.props;
-const isEnglish = Astro.url.pathname.startsWith('/en');
+const isEnglish = !/^\/ch(\/|$)/.test(Astro.url.pathname);
 ---
 
 <html lang={isEnglish ? 'en' : 'zh-TW'}>

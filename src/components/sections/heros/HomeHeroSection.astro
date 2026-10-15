@@ -5,9 +5,9 @@ import settings from '../../../config/settings.js';
 import {ThemeSwitcher} from '../../theme-switcher/theme-switcher';
 
 // Language detection
-const isEnglish = Astro.url.pathname.startsWith('/en');
-const blogHref = isEnglish ? '/en/blog' : '/blog';
-const aboutHref = isEnglish ? '/en/about' : '/about';
+const isEnglish = !/^\/ch(\/|$)/.test(Astro.url.pathname);
+const blogHref = isEnglish ? '/blog' : '/ch/blog';
+const aboutHref = isEnglish ? '/about' : '/ch/about';
 ---
 
 <Container>

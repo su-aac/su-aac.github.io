@@ -1,0 +1,76 @@
+---
+import { Container, FeatureCard } from '@components/odyssey-theme';
+
+import Layout from '../../layouts/Page.astro';
+import HomeHeroSection from '../../components/sections/heros/HomeHeroSection.astro';
+---
+
+<Layout>
+	<HomeHeroSection />
+	<Container>
+		<section class="feature-card__section">
+			<h2>認識 AAC</h2>
+			<p>
+				從這裡開始認識 AAC 與參與研究。
+			</p>
+			<div class="feature-card__grid">
+				<FeatureCard href="/ch/what-is-aac" title="AAC是什麼？" imgSrc="/assets/images/home/whatisaac">
+				</FeatureCard>
+				<FeatureCard href="/ch/research-recruitment" title="研究招募" imgSrc="/assets/images/home/screenshots/research_recruitment">
+				</FeatureCard>
+			</div>
+		</section>
+	</Container>
+
+	<Container>
+		<section class="feature-card__section">
+			<h2>精選文章</h2>
+			<p>
+				熱門 AAC 文章與資源。
+			</p>
+			<div class="feature-card__grid">
+				<FeatureCard href="/ch/blog/posts/core-word-board" title="AAC核心詞彙版 Core Word Board" imgSrc="/assets/images/home/screenshots/core-word-board">
+				</FeatureCard>
+				<FeatureCard href="/ch/blog/posts/aac-practive-sharing" title="AAC實作分享" imgSrc="/assets/images/home/screenshots/aac-practice">
+				</FeatureCard>
+				<FeatureCard href="/ch/blog/posts/communication-matrix" title="【AAC評估】溝通矩陣 (Communication Matrix)" imgSrc="/assets/images/home/screenshots/communication-matrix">
+				</FeatureCard>
+				<FeatureCard href="/ch/blog/posts/aac-apply" title="AAC溝通輔具申請" imgSrc="/assets/images/home/screenshots/aac-apply">
+				</FeatureCard>
+			</div>
+		</section>
+	</Container>
+
+	<Container>
+		<section class="feature-card__section">
+			<h2>專案</h2>
+			<p>
+				正在進行的專案與研究。
+			</p>
+			<div class="feature-card__grid">
+				<FeatureCard
+					href="/ch/projects/os-dpi-ai"
+					imgSrc="/assets/images/home/screenshots/os-dpi-ai"
+					title="Project Open: AAC + AI"
+				>
+				</FeatureCard>
+			</div>
+		</section>
+	</Container>
+</Layout>
+
+<style>
+	.feature-card__section {
+		margin: var(--section-margin) auto;
+	}
+	.feature-card__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--theme-grid-gap);
+	}
+	@media (max-width: 768px) {
+		.feature-card__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

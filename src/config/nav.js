@@ -1,37 +1,37 @@
 export const nav = [
 	{
 		title: 'Home',
-		slug: '/en',
+		slug: '/',
 	},
 	{
 		title: 'Blog',
-		slug: '/en/blog',
+		slug: '/blog',
 	},
 	{
 		title: 'About',
-		slug: '/en/about',
+		slug: '/about',
 	},
 	{
 		title: 'CV',
-		slug: '/en/cv',
+		slug: '/cv',
 	},
 ];
 
 export const navZh = [
 	{
 		title: '首頁',
-		slug: '/',
+		slug: '/ch',
 	},
 	{
 		title: '部落格',
-		slug: '/blog',
+		slug: '/ch/blog',
 	},
 	{
 		title: '關於我',
-		slug: '/about',
+		slug: '/ch/about',
 	},
 	{
 		title: '履歷',
-		slug: '/cv',
+		slug: '/ch/cv',
 	},
 ];

@@ -26,7 +26,11 @@ const formattedDate = publishDate ? new Intl.DateTimeFormat('en-US', {
 
 // Get related posts (same category OR similar tags, excluding current post)
 // Always show 3 posts - fill with other posts if not enough matches
-const allPosts = await Astro.glob('../pages/blog/posts/*.mdx');
+const isEnglish = !/^\/ch(\/|$)/.test(Astro.url.pathname);
+const blogBase = isEnglish ? '/blog' : '/ch/blog';
+const allPosts = isEnglish
+  ? await Astro.glob('../pages/blog/posts/*.mdx')
+  : await Astro.glob('../pages/ch/blog/posts/*.mdx');
 const currentTags = tags || [];
 
 const otherPosts = allPosts.filter((post) => post.frontmatter.title !== title);
@@ -72,12 +76,12 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
 
       <div class="post2-meta">
         {author && (
-          <span>By <a href={`/blog/authors/${author.toLowerCase().replace(/\s+/g, '-')}`} class="post2-author-link"><strong>{author}</strong></a></span>
+          <span>By <a href={`${blogBase}/authors/${author.toLowerCase().replace(/\s+/g, '-')}`} class="post2-author-link"><strong>{author}</strong></a></span>
         )}
         <span class="post2-date">{formattedDate}</span>
         {category && (
           <span>
-            Posted in <a href={`/blog/categories/${category.toLowerCase().replace(/\s+/g, '-')}`} class="post2-category-link"><strong>{category}</strong></a>
+            Posted in <a href={`${blogBase}/categories/${category.toLowerCase().replace(/\s+/g, '-')}`} class="post2-category-link"><strong>{category}</strong></a>
           </span>
         )}
       </div>
@@ -86,7 +90,7 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
         <div class="post2-tags">
           <span class="post2-tags-label">Tags:</span>
           {allTagsData.map(tag => (
-            <a href={`/blog/tags/${tag.slug}`} class="post2-tag">
+            <a href={`${blogBase}/tags/${tag.slug}`} class="post2-tag">
               {tag.title}
             </a>
           ))}
@@ -230,13 +234,20 @@ const relatedPosts = [...matchedPosts, ...unmatchedPosts].slice(0, 3);
             // Clear existing content
             giscusEl.innerHTML = '';
 
+            // Comment threads were created under the old URLs (Chinese at /, English at /en/),
+            // so look them up by the old path, in the same format Giscus's pathname mapping uses
+            const path = window.location.pathname;
+            const oldPath = /^\/ch(\/|$)/.test(path) ? path.replace(/^\/ch/, '') || '/' : `/en${path}`;
+            const term = oldPath.length < 2 ? 'index' : oldPath.substring(1).replace(/\.\w+$/, '');
+
             const script = document.createElement('script');
             script.src = 'https://giscus.app/client.js';
             script.setAttribute('data-repo', 'su-aac/su-aac.github.io');
             script.setAttribute('data-repo-id', 'R_kgDORCDuTw');
             script.setAttribute('data-category', 'Blog Comments');
             script.setAttribute('data-category-id', 'DIC_kwDORCDuT84C3WYc');
-            script.setAttribute('data-mapping', 'pathname');
+            script.setAttribute('data-mapping', 'specific');
+            script.setAttribute('data-term', term);
             script.setAttribute('data-strict', '0');
             script.setAttribute('data-reactions-enabled', '1');
             script.setAttribute('data-emit-metadata', '0');

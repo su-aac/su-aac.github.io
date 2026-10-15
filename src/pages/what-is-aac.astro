@@ -13,14 +13,14 @@ import Layout from '../layouts/Page.astro';
 import TextAndImageHero from '../components/sections/heros/TextAndImageHero.astro';
 
 const seo = {
-	title: '什麼是AAC？| AAC今天就開始',
+	title: 'What is AAC? | Start AAC Today',
 	description:
-		'AAC（輔助及替代性溝通系統）介紹：什麼是AAC、誰需要AAC、以及為什麼AAC很重要。Everyone deserves a voice!',
+		'An introduction to AAC (Augmentative and Alternative Communication) — what it is, who needs it, and why it matters. Everyone deserves a voice!',
 };
 ---
 
 <AnnouncementBar
-	text="關於AAC：什麼是AAC溝通輔具？"
+	text="About AAC: What is Augmentative and Alternative Communication?"
 	href="/blog"
 	slot="announcement-bar"
 />
@@ -28,26 +28,24 @@ const seo = {
 <Layout {seo}>
 	<TextAndImageHero reversed>
 		<div slot="text-container">
-			<h1>什麼是 AAC？</h1>
+			<h1>What is AAC?</h1>
 			<p>
-				AAC（Augmentative and Alternative Communication）中文是「輔助及替代性溝通系統」，也常被稱為溝通輔具。
+				AAC stands for Augmentative and Alternative Communication. It refers to any form of communication other than verbal speech.
 				<br />
 				<br />
-				👉 只要不是用口語發聲的溝通方式，都可以是 AAC。
-				<br />
-				它可以用來「輔助」口語，也可以在沒有口語時「替代」口語。
+				AAC can "augment" existing speech or serve as an "alternative" when speech is not possible.
 			</p>
 		</div>
 
 		<div slot="btns-container">
 			<Button href="/blog" customIcon>
-				查看更多文章
+				Read More Articles
 				<Fragment slot="icon">
 					<Icon name="ic:baseline-chevron-right" />
 				</Fragment>
 			</Button>
 			<Button href="/blog/categories/aac-resources/" outlined customIcon>
-				查看 AAC 資源
+				AAC Resources
 				<Fragment slot="icon">
 					<Icon name="ic:baseline-chevron-right" />
 				</Fragment>
@@ -57,61 +55,61 @@ const seo = {
 		<picture slot="image-container">
 			<img
 				src="/assets/images/home/whatisaac.webp"
-				alt="什麼是AAC（溝通輔具）"
+				alt="What is AAC (Augmentative and Alternative Communication)"
 				id="home-hero-image"
 			/>
 		</picture>
 	</TextAndImageHero>
 
 	<CustomerQuoteSection
-		quoteText="Everyone deserves a voice! 每個人都值得被聽見。不能說話，不代表無話可說。"
-		customerName="AAC今天就開始"
+		quoteText="Everyone deserves a voice! Not being able to speak does not mean having nothing to say."
+		customerName="Start AAC Today"
 	/>
 
 	<ThreeColumnTextSection>
 		<div slot="column-1-body">
-			<h2>你早就用過 AAC</h2>
+			<h2>You've Already Used AAC</h2>
 			<p>
-				還記得重感冒失聲的時候嗎？拿紙筆寫下想說的話——✏️ 筆談，就是一種「低科技 AAC」。
-				甚至出國旅遊時語言不通，比手畫腳求生存？那也是 AAC。
+				Remember when you lost your voice from a bad cold? You grabbed a pen and paper to write what you wanted to say — that's a form of "low-tech AAC."
+				Even when traveling abroad and you don't speak the language, using gestures to get by? That's AAC too.
 				<br />
 				<br />
-				我們每個人，其實都曾經需要 AAC。
+				We've all needed AAC at some point.
 			</p>
 		</div>
-		<Button slot="column-1-cta" href="/blog/posts/remote-work-mental-health/">
-			了解更多
+		<Button slot="column-1-cta" href="/blog">
+			Learn More
 		</Button>
 
 		<div slot="column-2-body">
-			<h2>AAC 的三種型態</h2>
+			<h2>Three Types of AAC</h2>
 			<p>
-				👉 指著想要的東西（無科技 AAC）
+				Pointing to what you want (no-tech AAC)
 				<br />
-				🖼 指著圖片或文字（低科技 AAC）
+				Pointing to pictures or words (low-tech AAC)
 				<br />
-				📱 用手機或平板打字（高科技 AAC）
+				Using a phone or tablet to type (high-tech AAC)
 				<br />
 				<br />
-				從最簡單到最進階，AAC 的重點是：讓你的意思「被聽見」。
+				From simplest to most advanced, AAC is about making sure your message is heard.
 			</p>
 		</div>
 		<Button slot="column-2-cta" outlined href="/blog/categories/aac-resources/">
-			查看資源
+			View Resources
 		</Button>
 
 		<div slot="column-3-body">
-			<h2>誰可能需要 AAC？</h2>
+			<h2>Who Might Need AAC?</h2>
 			<p>
-				有些人是暫時需要；有些人是長期甚至一輩子需要。
-				大約 1.3% 的人口，無法只靠口語被聽到或理解。
+				Some people need it temporarily; others need it long-term or for life.
+				Approximately 1.3% of the population cannot be heard or understood through speech alone.
 				<br />
 				<br />
-				常見族群包含：腦性麻痺、自閉症、重度智能障礙、言語失用症、漸凍人、多發性硬化症、中風失語症、腦傷等。
+				Common groups include: cerebral palsy, autism, severe intellectual disability, apraxia of speech, ALS, multiple sclerosis, stroke-related aphasia, traumatic brain injury, and more.
 			</p>
 		</div>
-		<Button slot="column-3-cta" href="/blog/categories/aac-evaluation-therapy/">
-			評估與治療
+		<Button slot="column-3-cta" href="/blog/categories/aac-assessment-&-therapy/">
+			Assessment & Therapy
 		</Button>
 	</ThreeColumnTextSection>
 
@@ -122,44 +120,44 @@ const seo = {
 
 	<StickyTextImageSection>
 		<div slot="text-container">
-			<h2>為什麼 AAC 這麼重要？</h2>
+			<h2>Why Is AAC So Important?</h2>
 
-			<h3>溝通，是人存在的方式</h3>
+			<h3>Communication Is How We Exist</h3>
 			<p>
-				我們一天中大部分的時間，都在溝通。溝通不只是講話，而是：說「我愛你」、說「謝謝」、分享趣事、
-				講述「我是誰、我經歷過什麼」。
+				We spend most of our day communicating. Communication isn't just talking — it's saying "I love you," saying "thank you," sharing funny stories,
+				and telling others "who I am and what I've been through."
 				<br />
-				想像一下，如果你有滿肚子的話，卻沒有人聽得見，那會是什麼感覺？
+				Imagine having so much to say, but no one can hear you. How would that feel?
 			</p>
 
-			<h3>每個人都該有權利表達</h3>
+			<h3>Everyone Deserves the Right to Express Themselves</h3>
 			<p>
-				有位腦性麻痺患者，學會使用 AAC 後，表達的第一件事是告訴家人他被照顧者虐待。
-				如果他沒有機會使用 AAC，是否一輩子都苦不堪言？
+				A person with cerebral palsy, after learning to use AAC, used it to tell his family he was being abused by his caregiver.
+				Without AAC, would he have suffered in silence for the rest of his life?
 				<br />
-				另一位罕病氣切的小男孩，用 AAC 跟媽媽打小報告：家裡的貓咪尿尿在床上！
+				A young boy with a tracheostomy used AAC to tell his mom: the cat peed on the bed!
 			</p>
 
-			<h3>溝通與尊重：真正「對他說話」</h3>
+			<h3>Communication and Respect: Truly "Speaking to Them"</h3>
 			<p>
-				一位 AAC 使用者分享：看醫生時，醫生總是對著媽媽說話，彷彿他不存在。
-				直到他用 AAC 表達健康問題，醫生才驚訝地轉向他，開始真正「對他說話」。
-				那一刻，他是一個有想法、有意見的人。
+				An AAC user shared: when visiting the doctor, the doctor always spoke to his mom, as if he didn't exist.
+				It wasn't until he used AAC to describe his health concerns that the doctor, surprised, turned to him and started actually "speaking to him."
+				In that moment, he was a person with thoughts and opinions.
 			</p>
 
-			<h3>溝通，定義我是誰</h3>
+			<h3>Communication Defines Who I Am</h3>
 			<p>
-				另一位使用者說：「當我用 AAC 溝通時，別人看到的是『真正的我』，而不是那個坐在輪椅上的我。」
+				Another AAC user said: "When I communicate with AAC, people see the 'real me,' not just the person sitting in a wheelchair."
 				<br />
 				<br />
-				沉默從來不是金——我們都需要和人溝通和交流。溝通是身為人的基本需求、基本權利。
-				（Bob Williams, 2000, p.248）
+				Silence was never golden — we all need to connect and communicate with others. Communication is a fundamental human need and a basic human right.
+				(Bob Williams, 2000, p.248)
 			</p>
 
 			<p style="margin-top: 1.25rem; opacity: 0.9;">
-				<b>參考資料：</b>
+				<b>References:</b>
 				<br />
-				Beukelman, D. R., &amp; Mirenda, P. (2013). <i>Augmentative and Alternative Communication:
+				Beukelman, D. R., & Mirenda, P. (2013). <i>Augmentative and Alternative Communication:
 				Supporting Children and Adults with Complex Communication Needs</i> (4th ed.). Brookes Publishing.
 			</p>
 		</div>
@@ -167,20 +165,20 @@ const seo = {
 		<picture slot="image-container">
 			<img
 				src="/assets/images/what-is-aac/landing-sticky.jpg"
-				alt="AAC 溝通與尊重"
+				alt="AAC Communication and Respect"
 				loading="lazy"
 			/>
 		</picture>
 	</StickyTextImageSection>
 
 	<CtaCardSection background="var(--theme-surface-2)" color="var(--theme-on-surface-2)">
-		<h2>#AAC今天就開始</h2>
+		<h2>#StartAACToday</h2>
 		<p>
-			想看更多：AAC評估 &amp; 治療、AAC活動、AAC資源（核心詞彙、App推薦、版面設計）。
-			一起把「每個人都值得被聽見」變成日常。
+			Explore more: AAC Assessment & Therapy, AAC Activities, AAC Resources (core vocabulary, app recommendations, page design).
+			Let's make "everyone deserves a voice" an everyday reality.
 		</p>
-		<Button href="/blog/categories/aac/" customIcon>
-			前往 AAC 專區
+		<Button href="/blog" customIcon>
+			Go to AAC Blog
 			<Fragment slot="icon">
 				<Icon name="ic:baseline-chevron-right" />
 			</Fragment>

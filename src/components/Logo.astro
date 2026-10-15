@@ -1,5 +1,5 @@
 ---
-const isEnglish = Astro.url.pathname.startsWith('/en');
+const isEnglish = !/^\/ch(\/|$)/.test(Astro.url.pathname);
 ---
 
 <p class="odyssey-logo">{isEnglish ? 'AAC Action Now' : 'AAC今天就開始'}</p>

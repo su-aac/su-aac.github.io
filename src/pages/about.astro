@@ -7,26 +7,24 @@ import { TextSection,
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
 
-const isEnglish = Astro.url.pathname.startsWith('/en');
-
 const seo = {
-	title: '關於我 | AAC Action Now',
-	description: '熱愛AAC的語言治療師，分享AAC知識、評估、治療與資源。',
+	title: 'About Me | AAC Action Now',
+	description: 'A speech-language pathologist passionate about AAC, sharing knowledge, assessment, intervention, and resources.',
 };
 ---
 
 <Layout {seo}>
 	<HeroSection>
 		<div slot="text-container">
-			<h1>熱愛AAC的語言治療師</h1>
-      <p>在這個部落格裡，我會分享：</p>
+			<h1>A Speech-Language Pathologist Passionate About AAC</h1>
+      <p>On this blog, I will share:</p>
         <ul>
-          <li>AAC 知識</li>
-          <li>AAC 評估與治療</li>
-          <li>AAC 活動設計</li>
-          <li>AAC 教學與應用資源</li>
+          <li>AAC Knowledge</li>
+          <li>AAC Assessment & Intervention</li>
+          <li>AAC Activity Design</li>
+          <li>AAC Teaching & Application Resources</li>
         </ul>
-      <p>歡迎大家與我交流、給我建議或提問！</p>
+      <p>Feel free to reach out, give me suggestions, or ask questions!</p>
 		</div>
     <picture slot="image-container">
       <img
@@ -39,25 +37,33 @@ const seo = {
 
   <TextSection narrow>
     <p>
-      筱庭擁有台灣語言治療師證照，目前於美國北卡羅來納大學教堂山分校
-      攻讀語言治療博士，研究方向為溝通障礙者的溝通與讀寫教學。
-      筱庭為有特殊需求的兒童與成人提供語言、構音、吞嚥及輔助溝通系統（AAC）
-      的評估與介入。服務對象涵蓋語言障礙、腦性麻痺、自閉症、智能障礙等不同診斷族群。
-      她曾於台灣的醫院與相關機構，以及美國的學校診所、特殊學校與一般小學服務，
-      並參與匹茲堡 AAC 夏令營與密西根讀寫與 AAC 夏令營，協助孩子建立溝通與語言能力。
+      Hsiao-Ting is a licensed speech-language pathologist from Taiwan, currently pursuing
+      her Ph.D. in Speech-Language Pathology at the University of North Carolina at Chapel Hill.
+      Her research focuses on communication and literacy instruction for individuals with
+      communication disorders. She provides assessment and intervention for language, articulation,
+      swallowing, and augmentative and alternative communication (AAC) for children and adults
+      with special needs. Her clients include individuals with language disorders, cerebral palsy,
+      autism, intellectual disabilities, and other diagnoses.
     </p>
 
     <p>
-      在美國，筱庭看到許多重症、多重障礙與低口語使用者都能透過 AAC
-      擁有有效的溝通工具。她希望分享自己在這裡看到與學到的經驗，
-      讓更多人認識 AAC，並在台灣持續推廣輔助溝通的理念與實踐。
+      She has worked in hospitals and related institutions in Taiwan, as well as school clinics,
+      special schools, and general elementary schools in the United States. She has also participated
+      in the Pittsburgh AAC Summer Camp and the Michigan Literacy & AAC Summer Camp, helping children
+      build communication and language skills.
+    </p>
+
+    <p>
+      In the United States, Hsiao-Ting has seen how individuals with severe disabilities,
+      multiple disabilities, and minimal verbal communication can have effective communication
+      tools through AAC. She hopes to share her experiences and learnings here, so that more
+      people can learn about AAC, and to continue promoting augmentative and alternative
+      communication concepts and practices in Taiwan.
     </p>
 
     <br>
-    <h2>{isEnglish ? 'Contact' : '聯絡資訊'}</h2>
-      <p>
-        {isEnglish ? 'Feel free to contact me via email or social media.' : '歡迎透過電子郵件或社群媒體與我聯繫。'}
-      </p>
+    <h2>Contact</h2>
+      <p>Feel free to contact me via email or social media.</p>
       <div>
         <p>
           <em><a href="mailto:Hsiao-Ting_Su@med.unc.edu">Hsiao-Ting_Su (at) med.unc.edu</a></em>
@@ -65,6 +71,5 @@ const seo = {
         </p>
       </div>
   </TextSection>
-
 
 </Layout>

@@ -5,6 +5,7 @@ import Plug from './Plug.astro';
 
 const { footerSocials, footerLists, copyrightName, background, color, showPlug: showPlug = true } =
   Astro.props;
+const homeHref = /^\/ch(\/|$)/.test(Astro.url.pathname) ? '/ch' : '/';
 ---
 
 <footer
@@ -14,7 +15,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
     <div class="footer-grid__container">
       <div class="footer-brand__container">
         <div>
-          <a href="/">
+          <a href={homeHref}>
           <slot name="logo" />
           </a>
         </div>

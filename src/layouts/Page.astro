@@ -17,10 +17,10 @@ const { seo } = Astro.props as Props;
 
 // Language switcher logic
 const currentPath = Astro.url.pathname;
-const isEnglish = currentPath.startsWith('/en');
+const isEnglish = !/^\/ch(\/|$)/.test(currentPath);
 const switchUrl = isEnglish
-  ? currentPath.replace('/en', '') || '/'
-  : `/en${currentPath}`;
+  ? (currentPath === '/' ? '/ch' : `/ch${currentPath}`)
+  : currentPath.replace(/^\/ch/, '') || '/';
 const switchLabel = isEnglish ? '中文' : 'English';
 const currentNav = isEnglish ? nav : navZh;
 ---

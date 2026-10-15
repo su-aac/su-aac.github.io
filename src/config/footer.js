@@ -27,11 +27,11 @@ export const footerLists = [
 		items: [
 			{
 				title: 'AAC是什麼？',
-				slug: '/what-is-aac',
+				slug: '/ch/what-is-aac',
 			},
 			{
 				title: '研究招募',
-				slug: '/research-recruitment',
+				slug: '/ch/research-recruitment',
 			},
 		],
 	},
@@ -40,15 +40,15 @@ export const footerLists = [
 		items: [
 			{
 				title: '自我介紹',
-				slug: '/about',
+				slug: '/ch/about',
 			},
 			{
 				title: '部落格',
-				slug: '/blog',
+				slug: '/ch/blog',
 			},
 			{
 				title: '履歷',
-				slug: '/cv',
+				slug: '/ch/cv',
 			},
 		],
 	},
@@ -73,11 +73,11 @@ export const footerListsEn = [
 		items: [
 			{
 				title: 'What is AAC?',
-				slug: '/en/what-is-aac',
+				slug: '/what-is-aac',
 			},
 			{
 				title: 'Research Recruitment',
-				slug: '/en/research-recruitment',
+				slug: '/research-recruitment',
 			},
 		],
 	},
@@ -86,15 +86,15 @@ export const footerListsEn = [
 		items: [
 			{
 				title: 'About',
-				slug: '/en/about',
+				slug: '/about',
 			},
 			{
 				title: 'Blog',
-				slug: '/en/blog',
+				slug: '/blog',
 			},
 			{
 				title: 'CV',
-				slug: '/en/cv',
+				slug: '/cv',
 			},
 		],
 	},
