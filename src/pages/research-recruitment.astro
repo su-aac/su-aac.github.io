@@ -6,8 +6,8 @@ import settings from '../config/settings';
 import { footerListsEn, footerSocials } from '../config/footer';
 
 const seo = {
-	title: 'Research Recruitment | Shared Reading Study for Minimally Verbal Children in Taiwan',
-	description: 'Inviting parents of minimally verbal or non-verbal children ages 3-7 to participate in an online survey about family shared reading resources and experiences.',
+	title: 'Research Recruitment | Shared Reading Study for Children Who Cannot Rely on Speech in Taiwan',
+	description: 'Inviting parents of children ages 3–7 who cannot rely on speech to be heard and understood to participate in an online survey about family shared reading resources and experiences.',
 };
 ---
 
@@ -30,31 +30,32 @@ const seo = {
     <section class="full-page-split__content-section">
       <div class="full-page-split__content-container">
         <h1>Research Recruitment</h1>
-        <p>Hello! I'm Hsiao-Ting, currently a doctoral student in Speech-Language Pathology at the University of North Carolina at Chapel Hill (UNC-Chapel Hill). My dissertation research aims to understand <strong>the shared reading resources and experiences of families with minimally verbal or non-verbal children ages 3–7 in Taiwan</strong>.</p>
+        <p class="closed-notice"><strong>This survey is now closed.</strong> Thank you to every family who took part and to everyone who shared the invitation! This study is part of my dissertation, and I am now analyzing the data. I look forward to sharing the results with everyone soon.</p>
 
-        <h2>Who Can Participate?</h2>
-        <p>Parents or primary caregivers of minimally verbal or non-verbal children ages 3–7.</p>
-        <p>"Minimally verbal" means the child typically produces fewer than 100 spoken words independently.</p>
+        <p>Hello! I'm Hsiao-Ting, currently a doctoral student in Speech-Language Pathology at the University of North Carolina at Chapel Hill (UNC-Chapel Hill). My dissertation research aims to understand <strong>the shared reading resources and experiences of families of children ages 3–7 in Taiwan who cannot rely on speech to be heard and understood</strong>.</p>
+
+        <h2>Who Participated?</h2>
+        <p>Parents or primary caregivers of children ages 3–7 who cannot rely on speech to be heard and understood.</p>
+        <p>This includes children who typically say fewer than 100 words independently, as well as children who do not use spoken words.</p>
         <ul>
-          <li>Non-verbal children are also very welcome</li>
-          <li>Even if you are not currently reading with your child, you are very welcome to participate (every family's experience matters)</li>
+          <li>Families were welcome whether or not they were currently reading with their child (every family's experience matters)</li>
         </ul>
 
         <h2>How?</h2>
-        <p>An anonymous online survey, taking approximately 15–20 minutes to complete. You may stop at any time.</p>
+        <p>An anonymous online survey that took about 15–20 minutes to complete.</p>
 
-        <h2>Incentive</h2>
-        <p>All participants who complete the survey are entered into a drawing: <strong>10 winners / each receives a 7-Eleven e-gift card worth NT$300</strong>.</p>
+        <h2>Incentive Drawing</h2>
+        <p>All participants who completed the survey were entered into a drawing: <strong>10 winners / each receives a 7-Eleven e-gift card worth NT$300</strong>.</p>
       </div>
     </section>
   </div>
   <div class="full-width-cta">
     <div class="cta-section">
-      <a href="https://go.unc.edu/FamilyReadingStudy" target="_blank" rel="noopener noreferrer" class="cta-button">
-        Take the Survey
+      <a href="/blog/posts/invite_research" class="cta-button">
+        Read the Study Update
       </a>
     </div>
-    <p class="closing-message">If you know families who may qualify, we sincerely invite you to share this information.<br/>Parents are also welcome to contact me directly. Thank you for your support!</p>
+    <p class="closing-message">Stay tuned for a future post on the results!<br/>If you have any questions about the study, you are always welcome to contact me directly. Thank you for your support!</p>
   </div>
   <Footer
     slot="footer"
@@ -149,6 +150,12 @@ const seo = {
   padding: 2rem;
   text-align: center;
   margin-top: -4rem;
+}
+.closed-notice {
+  background-color: var(--theme-surface-1);
+  border-left: 4px solid var(--theme-primary);
+  border-radius: var(--theme-shape-radius);
+  padding: 1rem 1.25rem;
 }
 .closing-message {
   text-align: center;
